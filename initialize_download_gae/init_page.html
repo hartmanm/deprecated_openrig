@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html lang="en">
+<head>
+<title>openrig.net</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+.header {padding-top: 30px; text-align: center; color: white; background-color: #012060;}
+.navbar {display: flex; background-color: #333; padding: 0px;}
+.navbar a {color: white; padding: 14px 20px; text-decoration: none; text-align: center;}
+.navbar a:hover {background-color: #ddd; color: black;}
+.grid-container {
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+grid-template-areas:
+"u"
+"v"
+"t"
+"q"
+"l"
+"w"
+"a"
+"i"
+"x"
+"s"
+"d"
+"z"
+"g"
+"n";}
+.u {grid-area: u;}
+signup:hover,signup:active,signup:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+login:hover,login:active,login:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.v {grid-area: v;}
+.t {grid-area: t;}
+.q {grid-area: q;}
+.l {grid-area: l;}
+.w {grid-area: w;}
+.a {grid-area: a;}
+.i {grid-area: i;}
+.x {grid-area: x;}
+.s {grid-area: s;}
+download:hover,download:active,download:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.d {grid-area: d;}
+.z {grid-area: z;}
+.g {grid-area: g;}
+.n {grid-area: n;}
+
+.grid-container2 {display: grid; align: center;
+grid-template-columns: 3;
+grid-gap: 5px;
+justify-items: center;
+margin-left: 0px;
+grid-template-areas:
+"e r t";}
+.e {grid-area: e;}
+.r {grid-area: r;}
+.t {grid-area: t;}
+body{background:white;}
+}
+code{padding: 2px 2px; font-family: arial, sans-serif; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+thousand_series{padding: 2px 2px; font-family: arial, sans-serif; color: #0F640F; background-color: #DAF0DA; border-radius: 2px;}
+download{padding: 2px 2px; font-family: arial, sans-serif; color: #12192A; background-color: #CFD0D1; border-radius: 2px;}
+signup{padding: 2px 2px; font-family: arial, sans-serif; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+login{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+table {}
+td, th {padding: 4px; border-collapse: collapse}
+#btc{color: #833F00; background-color: #FFD4B2;}
+#etc{color: #0F5900; background-color: #CFF8CF;}
+#etcsymbol{color: #0F5900; background-color: #CFF8CF;}
+#eth{color: #380057; background-color: #DBA5F8;}
+#e1rate{color: #380057;background-color: #DBA5F8;}
+#etcrate{color: #0F5900; background-color: #CFF8CF;}
+#zecrate{color: #032166; background-color: #CBD3EE;}
+#zec{color: #032166; background-color: #CBD3EE;}
+#nhrate{color: #833F00; background-color: #FFD4B2;}
+#xmr{color: #6C0800; background-color: #FF8F86;}
+#ltc{color: #12192A; background-color: #CFD0D1;}
+#lbc{color: #115B4A; background-color: #CFD0D1;}
+#bch{color: #0F640F; background-color: #DAF0DA;}
+#dash{color: #012060; background-color: #88CCF4;}
+#rvn{color: #9e2c11; background-color: #c7ae9b;}
+#nice_x16r{color: #bfac0d; background-color: #f7f5b8;}
+.footer {padding: 60px; text-align: center; color: white; background-color: white;}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>openrig.net</h1>
+<p></p>
+</div>
+<div class="grid-container" id="main">
+<div class="u"><signup id="signup">Signup</signup>&nbsp&nbsp<login id="login">Login</login></div>
+<div class="v"></div>
+<div class="t"></div>
+<div class="q"></div>
+<div class="w"></div>
+<div class="a"></div>
+<div class="i"></div>
+<div class="x"></div>
+<div class="d"></div>
+<div class="z"></div>
+<div class="g"></div>
+<div class="n"></div>
+</div>
+<script>
+var overlord = 'https://overlord-nv.appspot.com';
+var use_proxy = 1;
+var cors_proxy = "https://cors-anywhere.herokuapp.com/";
+
+function execute_signup(element)
+{
+var url = overlord + "/signup";
+if(use_proxy == 1){url = cors_proxy + overlord + "/signup";}
+window.location.href = url;
+}
+
+// init d_id
+function download(content, fileName, contentType)
+{
+var self = "/downloads";
+var bullet = {};
+bullet['NUMBER_OF_DOWNLOADS'] = 1;
+var payload = JSON.stringify(bullet);
+var req = new XMLHttpRequest();
+var url = overlord + self;
+if(use_proxy == 1){url = cors_proxy + overlord + self;}
+req.open( "POST", url, true );
+req.setRequestHeader("Content-Type", "application/json");
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){var response = JSON.stringify(req.responseText);
+var down1 = document.getElementById('d_id');
+down1.innerHTML = "new d_id is: " + response;
+}
+else{console.log("Error: " + req.statusText);}});
+req.send(payload);
+
+var a = document.createElement("a");
+var file = new Blob([content], {type: contentType});
+a.href = URL.createObjectURL(file);
+a.download = fileName;
+a.click();
+}
+var down = document.createElement("download");
+var dl_url = {};
+dl_url['TEST'] = "complete!";
+var nvoc = JSON.stringify(dl_url);
+var filename = 'test1';
+down.addEventListener("click", function(e){var target = e.target || e.srcElement; download(nvoc, filename, 'plain')}, false);
+//b12.addEventListener("click", function(e){var target = e.target || e.srcElement; generate1bash(toString, filename, 'plain;charset=utf-8')}, false);
+down.class = "s";
+down.innerHTML = "initialize_d_id";
+main.appendChild(down);
+
+var signup_href = document.getElementById('signup');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_signup(target)}, false);
+
+</script>
+<div class="grid-container2"></div>
+<div id="d_id"></div>
+<div class="footer"><p></p></div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /(.*\.(png|jpg|jpeg|zip|jp2|css|js))$
+  static_files: static/\1
+  upload: static/.*\.(png|jpg|jpeg|zip|jp2|css|js)$
+
+- url: /.*
+  script: app.app

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&nbsp SETTINGS</title>
+</head>
+<body>
+<style>
+body{background:white; -webkit-app-region: drag;}
+code{padding: 4px 4px;font-size: 115%;color: #032166;background-color: #CBD3EE;border-radius: 2px;}
+h1,h2{color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 340;line-height: 1.125;}
+.dropdown{display: block; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 55%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.dropdown:focus,.dropdown:active{border-color: #686a69; outline: 0;}
+.form{position: relative; margin: 4px; padding: 0px 80px 20px 10px;}
+.form_input_group{margin-top: 4px; margin-top: 4px; margin-top: 0.25rem; padding: 8px 16px; padding: 8px 16px; padding: 0.5rem 1rem;}
+.form_label{display: block; color: #414643; font-family: Lato, sans-serif; font-size: 75%; line-height: 1.125;}
+.form_input{margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 100%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.form_button{margin-bottom: 40px; margin-top: 40px; margin-left: 25px; padding: 1px 1px; font-size: 115%; color: #12192A; background-color: #CFD0D1; border-radius: 2px;}
+.form_button:hover,.form_button:active,.form_button:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0;}
+.lamdalink{margin-left: 5%; margin-bottom: 25px; margin-top: 40px;}
+.lamdalink:hover,.lamdalink:active,.lamdalink:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0; text-decoration: none;}
+.div{margin-left: 5%; margin-right: 10%; text-align: left; color: #414643; font-family: Lato, sans-serif; font-size: 100%; line-height: 1.125; max-width: 800px;}
+.section{margin-left: auto; margin-right: auto; width: 100%;}
+.content{max-width: 680px; margin-left: auto; margin-right: auto;}
+.content_heading{margin-left: 20px; margin-top: 40px;font-size: 125%; color: #000000;}
+.form_input_client_args{word-wrap: break-word; word-break: break-all; height: 95px; width: 100%; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+</style>
+<section class="section">
+<div class="content">
+<h1 class="content_heading">SETTINGS</h1>
+<form autocomplete="off" class="form">
+<h1 class="content_heading">(global settings)</h1>
+<div id=USER_ID></div>
+<div class="form_input_group">
+<label class="form_label" for="EMAIL_UPDATES">EMAIL_UPDATES (YES: each rig sends update emails for all events)</label>
+<select class="dropdown" id="EMAIL_UPDATES" value="" name="EMAIL_UPDATES" type="text"/>
+<option>YES</option>
+<option>NO</option>
+</select>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="CHATID">CHATID (telegram CHATID for alerts)</label>
+<input class="form_input form_input--CHATID" id="CHATID" value="" name="CHATID" type="text"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="APIKEY">APIKEY (telegram APIKEY for alerts)</label>
+<input class="form_input form_input--APIKEY" id="APIKEY" value="" name="APIKEY" type="text"/>
+</div>
+<h1 class="content_heading">(new rigs and groups will use the data below as a preset)</h1>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="COIN">COIN ( RVN  CLIENT )</label>
+<select hidden class="dropdown" id="COIN" value="" name="COIN" type="text"/>
+<option>RVN</option>
+<option>CLIENT</option>
+</select>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="USE_GROUP_OC">USE_GROUP_OC (YES: overwrites individual rig OC settings with Group OC settings)</label>
+<select class="dropdown" id="USE_GROUP_OC" value="" name="USE_GROUP_OC" type="text"/>
+<option>YES</option>
+<option>NO</option>
+</select>
+</div>
+
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="X16R_SPECIFIC_OC_SETTINGS">RVN_SPECIFIC_OC_SETTINGS (PL,CC,MC,FS,EH) example: 106,100,500,49,1</label>
+<input hidden class="form_input form_input--X16R_SPECIFIC_OC_SETTINGS" id="X16R_SPECIFIC_OC_SETTINGS" value="" name="X16R_SPECIFIC_OC_SETTINGS" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="RVN_ADDRESS">RVN_ADDRESS</label>
+<input hidden class="form_input form_input--RVN_ADDRESS" id="RVN_ADDRESS" value="" name="RVN_ADDRESS" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="RVN_POOL">RVN_POOL   example:  stratum+tcp://rvn-us-east1.nanopool.org:12222</label>
+<input hidden class="form_input form_input--RVN_POOL" id="RVN_POOL" value="" name="RVN_POOL" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="NANOPOOL_EMAIL">RVN_NANOPOOL_EMAIL   example:  myemail@gmail.com</label>
+<input hidden class="form_input form_input--NANOPOOL_EMAIL" id="NANOPOOL_EMAIL" value="" name="NANOPOOL_EMAIL" type="text"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="CLIENT">CLIENT ( select a mining client )</label>
+<select class="dropdown" id="CLIENT" value="" name="CLIENT" type="text"/>
+<option>bci_progpowminer</option>
+<option>bminer_15_5_1</option>
+<option>claymore_12_0</option>
+<option>cryptodredge_0_19_1_c10</option>
+<option>cryptodredge_0_18_0_c10</option>
+<option>cryptodredge_v0_18_0_cuda_9_2</option>
+<option>cryptodredge_v0_17_0_cuda_9_2</option>
+<option>ethminer_0_17_1</option>
+<option>ewbf</option>
+<option>fullzero</option>
+<option>gminer_1_42</option>
+<option>gminer_1_41</option>
+<option>gminer_1_40</option>
+<option>gminer_1_39</option>
+<option>gminer_1_38</option>
+<option>PhoenixMiner_4_2c</option>
+<option>trex_0_14_4_c10</option>
+<option>trex_0_10_2_c10</option>
+<option>trex_0_9_2_c10</option>
+<option>trex_0_9_2_c9</option>
+<option>xmrstak</option>
+<option>z_enemy_2_0</option>
+<!--
+<option>claymore_14_2</option>
+<option>z_enemy_1_28</option>
+-->
+</select>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="CLIENT_ARGS">CLIENT_ARGS (arguments for mining client, use $RIG for workername)  example: --server grincuckaroo29.usa.nicehash.com --port 3371 --user  YOUR_NICE_BTC_ADDRESS.$RIG -p x --algo grin29 --pec 0 -w 0</label>
+<textarea class="form_input_client_args" id="CLIENT_ARGS" value="" name="CLIENT_ARGS" type="text"></textarea>
+</div>
+<div class="div">For reference: PL,CC,MC,FS,EH</div>
+<br>
+<div class="div">PL is Power Limit (in watts)</div>
+<div class="div">CC is Core Overclock (offset from stock clock, use 0 for stock clock)</div>
+<div class="div">MC is Memory Overclock (offset from stock clock, use 0 for stock clock)</div>
+<div class="div">FS is Fan Speed (in percent, use 49 or lower for automatic/dynamic speed)</div>
+<div class="div">EH is Expected Hashrate (this is the hashrate you expect from the rig)</div>
+<br>
+<div class="div">Ensure you set EH low until you are sure what to expect, otherwise you will send your rig into a boot loop.</div>
+<br>
+<div class="form_input_group">
+<label class="form_label" for="CLIENT_OC">CLIENT_OC (PL,CC,MC,FS,EH) example: 106,100,500,49,1</label>
+<input class="form_input form_input--CLIENT_OC" id="CLIENT_OC" value="" name="CLIENT_OC" type="text"/>
+</div>
+<button class="form_button" type="submit">Submit</button> &nbsp&nbsp&nbsp&nbsp <code id="feedback"></code>
+</form>
+<br>
+<code class="lamdalink" id="return"></code>
+</div>
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+'use strict';
+const overlord = 'https://openrig.net';
+const riglist_url = "https://openrig.net/riglist/";
+
+var session = "";
+var auth = "";
+var basis = {};
+fillForm();
+
+var form_to_json = function form_to_json(elements){
+return [].reduce.call(elements, function (data, element){data[element.name] = element.value; return data;}, {});
+};
+var submit_form = function submit_form(event){
+event.preventDefault();
+var data = form_to_json(form.elements);
+
+var data_box = JSON.stringify(data);
+addBASIStoUser(data_box);
+};
+var form = document.getElementsByClassName('form')[0];
+form.addEventListener('submit', submit_form);
+
+
+function get_auth()
+{
+var newURL = window.location.toString();
+var here = newURL.indexOf("S");
+var resp = newURL.slice(here);
+session = resp;
+var url = overlord + "/sid_auth/" + resp;
+var req = new XMLHttpRequest();
+req.open("GET", url, false);
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = req.responseText;
+var i = 0
+while (i < 200)
+{response = response.replace('"', ''); i++;}
+auth = response;
+}else{console.log( "Error: " + req.statusText );}
+});req.send( null );
+}
+
+
+function get_uid()
+{
+var uid = "";
+var newURL = window.location.toString();
+var here = newURL.indexOf("S");
+var resp = newURL.slice(here);
+session = resp;
+var url = overlord + "/sid_uid/" + resp;
+var req = new XMLHttpRequest();
+req.open("GET", url, false);
+req.setRequestHeader('Authorization', auth);
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = req.responseText;
+var i = 0
+while (i < 200)
+{response = response.replace('"', ''); i++;}
+uid = response;
+var u_self = document.getElementById('USER_ID').value = uid;
+}else{console.log( "Error: " + req.statusText );}
+});req.send( null );
+return uid;
+}
+
+
+function getUser(ex_uid){
+var temp = {};
+var req = new XMLHttpRequest();
+var url = overlord + "/user/" + ex_uid;
+req.open( "GET", url, false );
+req.setRequestHeader('Authorization', auth);
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = JSON.parse( req.responseText );
+basis = response['basis'];
+}
+else{console.log( "Error: " + req.statusText );}});
+req.send(null);
+}
+
+
+function fillForm(){
+get_auth();
+var uid = get_uid();
+
+getUser(uid);
+if(basis == "" || basis == null){
+basis = {};
+
+var xss = document.getElementById('X16R_SPECIFIC_OC_SETTINGS').value = "106,100,500,49,1";
+var client_oc = document.getElementById('CLIENT_OC').value = "106,100,500,49,1";
+
+var cid = document.getElementById('CHATID').value = "setup_your_telegram_to_use";
+var api = document.getElementById('APIKEY').value = "setup_your_telegram_to_use";
+var coin = document.getElementById('COIN').value = "CLIENT";
+var client = document.getElementById('CLIENT').value = "trex_cuda10";
+var group_oc = document.getElementById('USE_GROUP_OC').value = "YES";
+var rvnp = document.getElementById('RVN_POOL').value = "stratum+tcp://rvn-us-east1.nanopool.org:12222";
+var email = document.getElementById('NANOPOOL_EMAIL').value = "";
+var emailswitch = document.getElementById('EMAIL_UPDATES').value = "YES";
+var clientargs = document.getElementById('CLIENT_ARGS').value = "";
+}
+else{
+basis = JSON.parse(basis);
+
+var cid = document.getElementById('CHATID').value = basis.CHATID;
+var api = document.getElementById('APIKEY').value = basis.APIKEY;
+var rvn = document.getElementById('RVN_ADDRESS').value = basis.RVN_ADDRESS;
+var xss = document.getElementById('X16R_SPECIFIC_OC_SETTINGS').value = basis.X16R_SPECIFIC_OC_SETTINGS;
+var coin = document.getElementById('COIN').value = "CLIENT";
+var client = document.getElementById('CLIENT').value = basis.CLIENT;
+var group_oc = document.getElementById('USE_GROUP_OC').value = basis.USE_GROUP_OC;
+var rvnp = document.getElementById('RVN_POOL').value = basis.RVN_POOL;
+var email = document.getElementById('NANOPOOL_EMAIL').value = basis.NANOPOOL_EMAIL;
+var emailswitch = document.getElementById('EMAIL_UPDATES').value = basis.EMAIL_UPDATES;
+var clientargs = document.getElementById('CLIENT_ARGS').value = basis.CLIENT_ARGS;
+var client_oc = document.getElementById('CLIENT_OC').value = basis.CLIENT_OC;
+}
+}
+
+
+function addBASIStoUser(form_data)
+{
+var user = document.getElementById('USER_ID').value;
+var bullet = {};
+bullet['basis'] = form_data;
+var payload = JSON.stringify(bullet);
+var basis = document.getElementById('feedback');
+var req = new XMLHttpRequest();
+var self = "/user/" + user;
+var url = overlord + self;
+req.open( "PATCH", url, true );
+req.setRequestHeader('Authorization', auth);
+req.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = JSON.stringify(req.responseText);
+basis.innerHTML = "update complete";
+}
+else{console.log("Error: " + req.statusText);
+basis.innerHTML = "update failed submit again";
+}
+});
+req.send(payload);
+}
+
+
+function execute_return(element)
+{
+setTimeout(function(){
+var url = riglist_url + session;
+window.location.href = url;
+}, 100);
+}
+var tos = document.getElementById('return');
+tos.innerHTML = "return to Rigs";
+tos.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_return(target)}, false);
+</script>
+</body>
+</html>

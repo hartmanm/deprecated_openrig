@@ -1,0 +1,175 @@
+//signup with user post
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>&nbsp Signup</title>
+</head>
+<body>
+<style>
+body{background:white; -webkit-app-region: drag;}
+code{padding: 4px 4px;font-size: 115%;color: #032166;background-color: #CBD3EE;border-radius: 2px;}
+.feedback{margin-left: 25px;}
+h1,h2{color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 340;line-height: 1.125;}
+.content{width: 90vw;max-width: 680px;margin: 0;}
+.content_heading{margin-left: 20px; margin-top: 40px;font-size: 125%;}
+tos{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+tos:hover,tos:active,tos:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+home{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+home:hover,tos:active,tos:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.dropdown{display: block; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 20%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.dropdown:focus,.dropdown:active {border-color: #686a69; outline: 0;}
+.form{position: relative; display: block; margin: 4px; padding: 0px 80px 20px 10px;}
+.form_input_group{margin-top: 4px; margin-top: 4px; margin-top: 0.25rem; padding: 8px 16px; padding: 8px 16px; padding: 0.5rem 1rem;}
+.form_label{display: block; color: #414643; font-family: Lato, sans-serif; font-size: 75%; line-height: 1.125;}
+.form_input{display: block; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 60%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.form_button{padding: 1px 1px; font-size: 115%; color: #12192A; background-color: #CFD0D1; border-radius: 2px;}
+.form_button:hover,.form_button:active,.form_button:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0;}
+.lamdalink:hover,.lamdalink:active,.lamdalink:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0; text-decoration: none;}
+</style>
+<section class="content">
+<br>
+<div class="feedback">openrig.net&nbsp<tos id="terms_of_service">TERMS AND CONDITIONS</tos></div>
+<br>
+<h1 class="content_heading">Signup</h1>
+<form class="form">
+<div class="form_input_group">
+<label class="form_label" for="EMAIL_ADDRESS">EMAIL ADDRESS</label>
+<input class="form_input form_input--EMAIL_ADDRESS" id="EMAIL_ADDRESS" value="" name="EMAIL_ADDRESS" type="text"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="PASSWORD">PASSWORD (at least 12 characters)</label>
+<input class="form_input form_input--PASSWORD" id="PASSWORD" value="" name="PASSWORD" type="password"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="PASSWORD2">confirm PASSWORD</label>
+<input class="form_input form_input--PASSWORD2" id="PASSWORD2" value="" name="PASSWORD2" type="password"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="TOS">Accept Terms Of Service (by selecting YES)</label>
+<select class="dropdown" id="TOS" value="" name="TOS" type="text"/>
+<option>NO</option>
+<option>YES</option>
+</select>
+</div>
+<br>
+<button class="form_button" type="submit">Submit</button>
+</form>
+<code class="feedback" id="feedback0"></code>
+<br>
+<code class="feedback" id="feedback1"></code>
+<br>
+<code class="feedback" id="feedback2"></code>
+<br>
+<code class="feedback" id="feedback3"></code>
+<br><br>
+<div class="feedback">return to&nbsp<home id="home_href">openrig.net</home></div>
+</section>
+<script>
+'use strict';
+const overlord = 'https://openrig.net';
+const use_proxy = 0;
+const cors_proxy = "";
+var u1id = "";
+addUser();
+
+function execute_openrig(element)
+{
+var url = overlord;
+if(use_proxy == 1){url = cors_proxy + overlord;}
+window.location.href = url;
+}
+var home_href = document.getElementById('home_href');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_openrig(target)}, false);
+
+function execute_tos(element)
+{
+var url = overlord + "/terms_of_service";
+if(use_proxy == 1){tos = cors_proxy + overlord + "/terms_of_service";}
+window.location.href = url;
+}
+var tos = document.getElementById('terms_of_service');
+tos.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_tos(target)}, false);
+
+var form_to_json = function form_to_json(elements){
+return [].reduce.call(elements, function (data, element){data[element.name] = element.value; return data;}, {});
+};
+var submit_form = function submit_form(event){
+event.preventDefault();
+var feedback0 = document.getElementById('feedback0').innerHTML = "";
+var feedback1 = document.getElementById('feedback1').innerHTML = "";
+var feedback2 = document.getElementById('feedback2').innerHTML = "";
+var feedback3 = document.getElementById('feedback3').innerHTML = "";
+
+var data = form_to_json(form.elements);
+if(data.PASSWORD != ""){
+if(data.PASSWORD != null){
+if(data.PASSWORD.length < 12){var feedback = document.getElementById('feedback1').innerHTML = "Password must be at least 12 characters";}
+if(data.EMAIL_ADDRESS != ""){
+if(data.EMAIL_ADDRESS != null){
+if(data.EMAIL_ADDRESS.includes("@") == false){var feedback = document.getElementById('feedback0').innerHTML = "Invalid email address";}
+if(data.TOS != "YES"){var feedback = document.getElementById('feedback3').innerHTML = "You must agree to the TOS by typing YES";}
+if((data.PASSWORD.length >= 12) && (data.EMAIL_ADDRESS.includes("@") == true) && (data.PASSWORD == data.PASSWORD2) && (data.TOS == "YES")){
+var data_box = JSON.stringify(data);
+
+if(u1id == ""){addUser();}
+addCustomer(data_box);
+}
+
+if(data.EMAIL_ADDRESS.includes("@") == false){var feedback = document.getElementById('feedback0').innerHTML = "Invalid email address";}
+if(data.PASSWORD.length < 12){var feedback = document.getElementById('feedback1').innerHTML = "Password must be at least 12 characters";}
+if(data.PASSWORD != data.PASSWORD2){var feedback = document.getElementById('feedback2').innerHTML = "Password entries must match";}
+if(data.TOS != "YES"){var feedback = document.getElementById('feedback3').innerHTML = "You must agree to the TOS by typing YES";}
+}
+}
+}
+}
+};
+var form = document.getElementsByClassName('form')[0];
+form.addEventListener('submit', submit_form);
+
+
+function addUser(){
+var box = {};
+box['basis'] = "";
+var payload = JSON.stringify(box);
+var req = new XMLHttpRequest();
+var url = overlord + "/user";
+if(use_proxy == 1){url = cors_proxy + overlord + "/user";}
+req.open( "POST", url, true );
+req.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){var response = JSON.parse( req.responseText );
+u1id = response;
+}
+else{console.log( "Error: " + req.statusText );}});
+req.send( payload );
+}
+
+
+function addCustomer(form_data){
+var box = JSON.parse(form_data);
+box['USER_ID'] = u1id;
+var payload = JSON.stringify(box);
+var temp = {};
+var req = new XMLHttpRequest();
+var url = overlord + "/customer";
+if(use_proxy == 1){url = cors_proxy + overlord + "/customer";}
+req.open( "POST", url, true );
+req.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = req.responseText;
+//console.log(response);
+var t = document.getElementById('feedback3').innerHTML = response;
+}
+else{console.log( "Error: " + req.statusText );}});
+req.send(payload);
+}
+</script>
+<br>
+<br>
+<br>
+</body>
+</html>

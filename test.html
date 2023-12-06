@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--
+©2019 OPTECH LLC
+-->
+<html lang="en">
+<head>
+<title>openrig.net</title>
+<meta charset="utf-8">
+<meta name="Description" content="mining os">
+<meta name="theme-color" content="#012060"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap_4_3_1.css">
+<style>
+/*
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+.header {padding-top: 30px; text-align: center; color: white; background-color: #012060; font-family:Helvetica;}
+lamda_link:hover,lamda_link:active,lamda_link:focus{padding-top: 15px; padding-bottom: 17px; outline-style: solid; outline-color: #CBD3EE; cursor:pointer;}
+height:2.5vw;
+.footer{position:fixed; bottom:2.5vw; text-align:center; color:white; background-color:#677793;}
+
+
+*/
+
+.header{font-family:"Muli",sans-serif; font-weight:500; line-height:1.1; padding-top:30px; text-align:center; color:white; background-color:#746793;}
+.footer{width:100%; position:fixed; bottom:0px; height: 2vw; color:#ffffff; background-color:#677793;}
+
+.navbar {display: flex; background-color: #333; padding: 0px;}
+.navbar a {color: white; padding: 14px 20px; text-decoration: none; text-align: center;}
+.navbar a:hover {background-color: #ddd; color: black;}
+lamda_link{}
+lamda_link:hover,lamda_link:active,lamda_link:focus{padding-top: 15px; padding-bottom: 17px; cursor:pointer;}
+
+.l{max-width:300px; margin-left: auto; margin-right: auto;}
+
+.grid-container{
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+grid-template-areas:
+"u2"
+"v"
+"t"
+"q"
+"l"
+"ll";}
+.u2 {grid-area: u2;}
+signup:hover,signup:active,signup:focus {color: #CFD0D1; background-color: #12192A; cursor:pointer; outline: 0; text-decoration: none}
+login:hover,login:active,login:focus {color: #CFD0D1; background-color: #12192A; cursor:pointer; outline: 0; text-decoration: none}
+.v {grid-area: v;}
+.t {grid-area: t;}
+.q {grid-area: q;}
+.l {grid-area: l;}
+.ll {grid-area: ll;}
+
+.grid-container1{
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+grid-template-areas:
+"w"
+"a"
+"i2"
+"x"
+"s"
+"d"
+"z"
+"g"
+"n";}
+.w {grid-area: w;}
+.a {grid-area: a;}
+.i2 {grid-area: i2;}
+.x {grid-area: x;}
+.s {grid-area: s;}
+.d {grid-area: d;}
+.z {grid-area: z;}
+.g {grid-area: g;}
+.n {grid-area: n;}
+
+body{background:white;}
+}
+code2{padding: 2px 2px; font-family: arial, sans-serif; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+code{padding: 2px 2px; font-family: arial, sans-serif; border-radius: 2px;}
+thousand_series2{padding: 2px 2px; font-family: arial, sans-serif; color: #0F640F; background-color: #DAF0DA; border-radius: 2px;}
+thousand_series{font-family: arial, sans-serif; color: #0F640F; border-radius: 2px;}
+signup{padding: 2px 2px; font-family: arial, sans-serif; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+login{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+ddiv{background-color: #dcd0e7}
+.ddiv{background-color: #dcd0e7}
+
+
+home{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+home:hover,home:active,home:focus{color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.row{display: flex;}
+.column{flex: 50%; padding: 10px; height: 300px;}
+
+/*
+@media screen and (min-width: 1125px){body{transform: scale(1.5); transition: transform .2s;} .header{padding-top: 100px; text-align:center; color:white;}}
+*/
+@media screen and (min-width: 1125px){body{transform: scale(1.25); transition: transform 4s;} .l{max-width:450px; margin-left: auto; margin-right: auto;} .header{padding-top: 100px; text-align:center; color:white;}.footer{width:100%; position:fixed; bottom:-5vw; height: 3.75vw; color:#ffffff; background-color:#677793;}}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>openrig.net</h1>
+<p>easy-to-use Nvidia GPU mining management</p>
+</div>
+<ddiv class="ddiv">
+<div class="grid-container" id="main">
+<div class="u2"><signup id="signup">Signup</signup>&nbsp&nbsp<login id="login">Login</login></div>
+<div class="v"></div>
+<div class="t">oros mining OS supports mining:</div>
+<div class="l"><div id="base"></div></div>
+<div class="ll" id="linkinfo"></div>
+</div>
+<div class="grid-container1" id="main2">
+<div class="w"></div>
+<div class="a"></div>
+<div class="i2">with:</div>
+<div class="x"><thousand_series>Nvidia GPUs</thousand_series></div>
+<div class="d">dev fee:</div>
+<div class="z">1%</div>
+<div class="g">1% is 864 seconds of each day</div> <!-- 0.05% is 432 seconds of each day -->
+<div class="n">Configure, edit, and monitor rigs.</div>
+</div>
+
+
+<div class="downloads" style="text-align:center;">
+<h1>oros Mining OS for Nvidia GPU rigs</h1>
+</div>
+<div class="row">
+<div class="column"</div></div>
+<div class="column" style="border-radius:0.5vw;background-color:#dcd0e7; color:#322a3b;">
+<h2>&nbsp&nbsp&nbspv1.4 16.04 Rock Steady</h2>
+&nbsp&nbsp&nbsp- Ubuntu Linux: 16.04 (Xenial)
+<br>
+<br>&nbsp&nbsp&nbsp- Driver: Nvidia 415
+<br>
+<br>&nbsp&nbsp&nbsp- Size: 8.8 GB zipped
+<br>
+<br>&nbsp&nbsp&nbsp- Requires: 16 GB or larger USB key
+<br>
+<br>&nbsp&nbsp&nbsp- Supports:
+<br>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAll 1000 series or later Nvidia GPUs.
+</div>
+<div class="column" style="border-radius:0.5vw;background-color:#ede8f3; color:#1c1820;text-align:center;">
+<br><br><br><br><br><br><br>
+<home>Download oros 16.04 Rock Steady</home>
+</div>
+
+<div class="column"</div></div>
+</div>
+
+
+<div class="row">
+<div class="column"</div></div>
+<div class="column" style="border-radius:0.5vw;background-color:#ede8f3; color:#1c1820;">
+<h2>&nbsp&nbsp&nbspv1.4 18.04 Beta</h2>
+&nbsp&nbsp&nbsp- Ubuntu Linux: 18.04.2 (Bionic)
+<br>
+<br>&nbsp&nbsp&nbsp- Driver: Nvidia 410
+<br>
+<br>&nbsp&nbsp&nbsp- Size: 7.33 GB zipped
+<br>
+<br>&nbsp&nbsp&nbsp- Requires: 16 GB or larger USB key
+<br>
+<br>&nbsp&nbsp&nbsp- Supports:
+<br>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAll 1000 series or later Nvidia GPUs.
+</div>
+<div class="column" style="border-radius:0.5vw;background-color:#dcd0e7; color:#322a3b;text-align:center;">
+<br><br><br><br><br><br><br>
+<home>Download oros 18.04 Beta</home>
+</div>
+<div class="column"</div></div>
+</div>
+
+<br><br><br><br><br><br>
+
+
+</ddiv>
+<div class="footer">
+<script>
+const overlord = 'https://openrig.net';
+
+function execute_etcher(element)
+{
+var url = "https://www.balena.io/etcher/"
+window.open(url);
+}
+var home_href = document.getElementById('etch');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_etcher(target)}, false);
+
+
+
+
+var base = document.getElementById("base");
+
+function lamda_link(innerhtml,id,url)
+{
+var ddiv = document.createElement("lamda_link");
+ddiv.innerHTML = innerhtml;
+ddiv.id = id;
+base.appendChild(ddiv);
+function execute_z(element,url){window.open(url);}
+var lamdalink = document.getElementById(id);
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_z(target,url)}, false);
+}
+
+
+lamda_link('<img src="ether.png" style="width:50px;height:50px;" alt="jp2/ether.jp2"/>','eth','https://www.ethereum.org');
+lamda_link('<img src="rvn.png" style="width:50px;height:50px;" alt="jp2/rvn.jp2"/>','rvn','https://ravencoin.org');
+lamda_link('<img src="grin.png" style="width:50px;height:50px;" alt="jp2/grin.jp2"/>','grin','https://grin-tech.org');
+lamda_link('<img src="xzc.png" style="width:50px;height:50px;" alt="jp2/xzc.jp2"/>','xzc','https://zcoin.io');
+lamda_link('<img src="beam.png" style="width:50px;height:50px;" alt="jp2/beam.jp2"/>','beam','https://www.beam.mw');
+lamda_link('<img src="xmr.png" style="width:50px;height:50px;" alt="jp2/xmr.jp2"/>','xmr','https://www.getmonero.org');
+
+
+lamda_link('<img src="ae.png" style="width:50px;height:50px;" alt="jp2/ae.jp2"/>','ae','https://www.aeternity.com');
+lamda_link('<img src="etherclassic.png" style="width:50px;height:50px;" alt="jp2/etherclassic.jp2"/>','etc','https://ethereumclassic.org');
+lamda_link('<img src="suqa.png" style="width:50px;height:50px;" alt="jp2/suqa.jp2"/>','suqa','https://suqa.org');
+lamda_link('<img src="clo.png" style="width:50px;height:50px;" alt="jp2/clo.jp2"/>','clo','https://callisto.network');
+lamda_link('<img src="hth.png" style="width:50px;height:50px;" alt="jp2/hth.jp2"/>','hth','https://hthcoin.world');
+lamda_link('<img src="music.png" style="width:50px;height:50px;" alt="jp2/music.jp2"/>','music','https://musicoin.org');
+
+lamda_link('<img src="btg.png" style="width:50px;height:50px;" alt="jp2/btg.jp2"/>','btg','https://bitcoingold.org');
+lamda_link('<img src="aion.png" style="width:50px;height:50px;" alt="jp2/aion.jp2"/>','aion','https://aion.network');
+lamda_link('<img src="btcz.png" style="width:50px;height:50px;" alt="jp2/btcz.jp2"/>','btcz','https://btcz.rocks');
+lamda_link('<img src="xsg.png" style="width:50px;height:50px;" alt="jp2/xsg.jp2"/>','xsg','https://snowgem.org');
+lamda_link('<img src="anon.png" style="width:50px;height:50px;" alt="jp2/anon.jp2"/>','anon','https://www.anonymousbitcoin.io');
+lamda_link('<img src="nice.png" style="width:50px;height:50px;" alt="jp2/nice.jp2"/>','nice','https://www.nicehash.com');
+
+
+function execute_signup(element)
+{
+var url = overlord + "/signup";
+window.location.href = url;
+}
+
+var signup_href = document.getElementById('signup');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_signup(target)}, false);
+
+function execute_login(element)
+{
+var url = overlord + "/login";
+window.location.href = url;
+}
+var signup_href = document.getElementById('login');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_login(target)}, false);
+
+</script>
+</body>
+</html>

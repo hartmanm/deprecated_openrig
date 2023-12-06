@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html lang="en">
+<head>
+<title>Mining OS for Nvidia GPU rigs | openrig.net/oros</title>
+<meta charset="utf-8">
+<meta name="Description" content="mining os">
+<meta name="theme-color" content="#012060"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap_4_3_1.css">
+<style>
+.header{padding-top:30px; text-align:center; color:white; background-color:#746793;}
+.footer{width:100%; position:fixed; bottom:0px; height: 1vw; color:#ffffff; background-color:#677793;}
+
+.navbar {display: flex; background-color: #333; padding: 0px;}
+.navbar a {color: white; padding: 14px 20px; text-decoration: none; text-align: center;}
+.navbar a:hover {background-color: #ddd; color: black;}
+lamda_link{}
+lamda_link:hover,lamda_link:active,lamda_link:focus{padding-top: 15px; padding-bottom: 17px; cursor:pointer;}
+
+.l{max-width:300px; margin-left: auto; margin-right: auto;}
+
+.grid-container{
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+grid-template-areas:
+"u2"
+"v"
+"t"
+"q"
+"l"
+"ll";}
+.u2 {grid-area: u2;}
+signup:hover,signup:active,signup:focus {color: #CFD0D1; background-color: #12192A; cursor:pointer; outline: 0; text-decoration: none}
+login:hover,login:active,login:focus {color: #CFD0D1; background-color: #12192A; cursor:pointer; outline: 0; text-decoration: none}
+.v {grid-area: v;}
+.t {grid-area: t;}
+.q {grid-area: q;}
+.l {grid-area: l;}
+.ll {grid-area: ll;}
+
+.grid-container1{
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+grid-template-areas:
+"w"
+"a"
+"i2"
+"x"
+"s"
+"d"
+"z"
+"g"
+"n";}
+.w {grid-area: w;}
+.a {grid-area: a;}
+.i2 {grid-area: i2;}
+.x {grid-area: x;}
+.s {grid-area: s;}
+.d {grid-area: d;}
+.z {grid-area: z;}
+.g {grid-area: g;}
+.n {grid-area: n;}
+
+body{background:white;}
+}
+code2{padding: 2px 2px; font-family: arial, sans-serif; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+code{padding: 2px 2px; font-family: arial, sans-serif; border-radius: 2px;}
+thousand_series2{padding: 2px 2px; font-family: arial, sans-serif; color: #0F640F; background-color: #DAF0DA; border-radius: 2px;}
+thousand_series{font-family: arial, sans-serif; color: #0F640F; border-radius: 2px;}
+signup{padding: 2px 2px; font-family: arial, sans-serif; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+login{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+ddiv{}
+@media screen and (min-width: 1125px){ddiv{transform: scale(1.25); transition: transform 4s;} .l{max-width:450px; margin-left: auto; margin-right: auto;} .header{padding-top: 100px; text-align:center; color:white;}.footer{width:100%; position:fixed; bottom:-5vw; height: 3.75vw; color:#ffffff; background-color:#677793;}}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>openrig.net</h1>
+<p>easy-to-use Nvidia GPU mining management</p>
+</div>
+<ddiv>
+<div class="grid-container" id="main">
+<div class="u2"><signup id="signup">Signup</signup>&nbsp&nbsp<login id="login">Login</login></div>
+<div class="v"></div>
+<div class="t">oros mining OS supports mining:</div>
+<div class="l"><div id="base"></div></div>
+<div class="ll" id="linkinfo"></div>
+</div>
+<div class="grid-container1" id="main2">
+<div class="w"></div>
+<div class="a"></div>
+<div class="i2">with:</div>
+<div class="x"><thousand_series>Nvidia GPUs</thousand_series></div>
+<div class="d">fee:</div>
+<div class="z">0.05%</div>
+<div class="g">0.05% is 432 seconds of each day</div>
+<div class="n">Configure, edit, and monitor rigs.</div>
+</div>
+</ddiv>
+<!--
+<br><br><br><br><br><br><br><br><br>
+-->
+<footer class="footer"></footer>
+<script>
+const overlord = 'https://openrig.net';
+
+var base = document.getElementById("base");
+
+function lamda_link(innerhtml,id,url)
+{
+var ddiv = document.createElement("lamda_link");
+ddiv.innerHTML = innerhtml;
+ddiv.id = id;
+base.appendChild(ddiv);
+function execute_z(element,url){window.open(url);}
+var lamdalink = document.getElementById(id);
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_z(target,url)}, false);
+}
+
+
+lamda_link('<img src="ether.png" style="width:50px;height:50px;" alt="jp2/ether.jp2"/>','eth','https://www.ethereum.org');
+lamda_link('<img src="rvn.png" style="width:50px;height:50px;" alt="jp2/rvn.jp2"/>','rvn','https://ravencoin.org');
+lamda_link('<img src="xzc.png" style="width:50px;height:50px;" alt="jp2/xzc.jp2"/>','xzc','https://zcoin.io');
+lamda_link('<img src="etherclassic.png" style="width:50px;height:50px;" alt="jp2/etherclassic.jp2"/>','etc','https://ethereumclassic.org');
+lamda_link('<img src="xmr.png" style="width:50px;height:50px;" alt="jp2/xmr.jp2"/>','xmr','https://www.getmonero.org');
+//lamda_link('<img src="beam.png" style="width:50px;height:50px;" alt="jp2/beam.jp2"/>','beam','https://www.beam.mw');
+//lamda_link('<img src="grin.png" style="width:50px;height:50px;" alt="jp2/grin.jp2"/>','grin','https://grin-tech.org');
+//lamda_link('<img src="ae.png" style="width:50px;height:50px;" alt="jp2/ae.jp2"/>','ae','https://www.aeternity.com');
+//lamda_link('<img src="suqa.png" style="width:50px;height:50px;" alt="jp2/suqa.jp2"/>','suqa','https://suqa.org');
+//lamda_link('<img src="clo.png" style="width:50px;height:50px;" alt="jp2/clo.jp2"/>','clo','https://callisto.network');
+//lamda_link('<img src="hth.png" style="width:50px;height:50px;" alt="jp2/hth.jp2"/>','hth','https://hthcoin.world');
+//lamda_link('<img src="music.png" style="width:50px;height:50px;" alt="jp2/music.jp2"/>','music','https://musicoin.org');
+//lamda_link('<img src="btg.png" style="width:50px;height:50px;" alt="jp2/btg.jp2"/>','btg','https://bitcoingold.org');
+//lamda_link('<img src="aion.png" style="width:50px;height:50px;" alt="jp2/aion.jp2"/>','aion','https://aion.network');
+//lamda_link('<img src="btcz.png" style="width:50px;height:50px;" alt="jp2/btcz.jp2"/>','btcz','https://btcz.rocks');
+//lamda_link('<img src="xsg.png" style="width:50px;height:50px;" alt="jp2/xsg.jp2"/>','xsg','https://snowgem.org');
+//lamda_link('<img src="anon.png" style="width:50px;height:50px;" alt="jp2/anon.jp2"/>','anon','https://www.anonymousbitcoin.io');
+//lamda_link('<img src="nice.png" style="width:50px;height:50px;" alt="jp2/nice.jp2"/>','nice','https://www.nicehash.com');
+
+
+function execute_signup(element)
+{
+var url = overlord + "/signup";
+window.location.href = url;
+}
+
+var signup_href = document.getElementById('signup');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_signup(target)}, false);
+
+function execute_login(element)
+{
+var url = overlord + "/login";
+window.location.href = url;
+}
+var signup_href = document.getElementById('login');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_login(target)}, false);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>&nbsp Setup Guide</title>
+</head>
+<body>
+<style>
+body{background:white; -webkit-app-region: drag;}
+h1,h2{text-align: left; color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 340;line-height: 1.125;}
+teir_text{text-align: left; display: block; color: #414643; font-family: Lato, sans-serif; font-size: 100%; line-height: 1.125;}
+download{text-align: center; display: block; align: center;  border-radius: 2px; font-family: arial, sans-serif; color: #12192A; background-color: #CFD0D1;}
+download:hover,download:active,download:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+teir_textd{margin-right: 75%; text-align: center; display: block; color: #414643; font-family: Lato, sans-serif; font-size: 100%; line-height: 1.125; background-color: #CFD0D1;}
+teir_textd:hover,teir_textd:active,teir_textd:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.grid-container0{
+display: grid;
+align: center;
+grid-template-columns: 1;
+grid-gap: 0px;
+justify-items: center;
+grid-template-areas:
+"q"
+"w"
+"e";}
+.q {grid-area: q;}
+.w {grid-area: w;}
+.e {grid-area: e;}
+
+.content{}
+.ddiv{margin-left: auto; margin-right: auto; text-align: left; display: block; color: #414643; font-family: Lato, sans-serif; font-size: 100%; line-height: 1.125; max-width: 80%;}
+</style>
+<section class="ddiv">
+<div class="grid_container0" id="main"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
+<script>
+'use strict';
+const overlord = 'https://openrig.net';
+
+var base = document.getElementById("main");
+
+var setup_guide = document.createElement("h1");
+setup_guide.className = "teir_text";
+setup_guide.innerHTML = 'Setup Guide';
+setup_guide.id = 'setup_guide5';
+base.appendChild(setup_guide);
+
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("div");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'If you have an issue getting started; please post on the:  <br><br>';
+setup_guide.id = 'note1';
+base.appendChild(setup_guide);
+var setup_guide = document.createElement("teir_textd");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'Bitcointalk OP';
+setup_guide.id = 'op';
+base.appendChild(setup_guide);
+
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var down = document.createElement("teir_text");
+down.class = "w";
+down.innerHTML = "download oros from Rig List link";
+base.appendChild(down);
+
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'insert a 16 gb or larger USB key';
+setup_guide.id = 'setup_guide0';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+/*
+var setup_guide = document.createElement("teir_textd");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'download Windows imaging program';
+setup_guide.id = 'hdd';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+
+var setup_guide = document.createElement("teir_textd");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'Windows imaging picture based guide';
+setup_guide.id = 'wpic';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+*/
+
+var setup_guide = document.createElement("teir_textd");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'download Etcher imaging program';
+setup_guide.id = 'etch';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("div");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'Note: Etcher can image a USB key using the zip file.  There is no need to extract the downloaded zip file.';
+setup_guide.id = 'note';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+/*
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "teir_text";
+setup_guide.innerHTML = 'extract (unzip) image from the downloaded zip file (note this occurs automatically with default macOS settings)';
+setup_guide.id = 'setup_guide5';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'use downloaded imaging program to image usb key using the extracted (unzipped) image';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "teir_text";
+setup_guide.innerHTML = 'if using Ubuntu, open Disks application';
+setup_guide.id = 'setup_guide5';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'when using Windows; after imaging is complete, you may be prompted to format the primary partition of the newly imaged usb. Close or ignore this window, this occurs because Windows does not support the Ext4 filesystem.';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+*/
+
+/*
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'Depending on how many storage devices your Windows computer has, the partition you are looking for may recognized as a different letter';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '     Most likely it will be Local Disk (E:)';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      Open file explorer (type file in the search field on the left of the Windows taskbar)';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      On the left you should see:  This PC';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      If it is not expanded left click it to expand';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+*/
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      After imaging is complete; unplug, wait 3 seconds, then reinsert the imaged USB key.';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+/*
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      When you find the 0rig_here drive, left click it and you will find a file named: "put your 0rig here"';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+*/
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      When you find the 0rig_here drive, login to your openrig.net account, open Rig List and look at the right hand side of your rigs';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      Ensure that you are not using Firefox.  There is a bug that will prevent downloads from triggering';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'Configure your SETTINGS (click on SETTINGS)';
+setup_guide.id = 'config_guide1';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'each new GROUP and new RIG will use the values in SETTINGS as its initial values, which can be edited';
+setup_guide.id = 'config_guide2';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'after creating a GROUP, changing its settings will change the settings of any rig which is a member of that group';
+setup_guide.id = 'config_guide3';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'If you have more than 1 rig, I recommend making a Group to manage them more effectively.';
+setup_guide.id = 'config_guide4';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'Add a Rig by clicking on +Rig';
+setup_guide.id = 'config_guide4';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      You will see a 0rig button for each rig you have created';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      Click the 0rig button for the rig you are imaging';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      A download should occur without a prompt';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = '      Open your downloads folder, then copy the 0rig file to the Disk named 0rig_here; the one with the file named: "put your 0rig here"';
+setup_guide.id = 'setup_guide6';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'eject the usb and attach it to your rig; power on the rig';
+setup_guide.id = 'setup_guide10';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'your rig will reboot as part of the setup process';
+setup_guide.id = 'setup_guide11';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+var setup_guide = document.createElement("teir_text");
+setup_guide.className = "w";
+setup_guide.innerHTML = 'manage your rig from Rig List';
+setup_guide.id = 'setup_guide11';
+base.appendChild(setup_guide);
+var space = document.createElement("div");
+space.className = "w";
+space.innerHTML = '<br><br>';
+base.appendChild(space);
+
+/*
+function execute_wpic(element)
+{
+var url = overlord + "/windows10guide"
+window.open(url);
+}
+var home_href = document.getElementById('wpic');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_wpic(target)}, false);
+
+function execute_hddraw(element)
+{
+var url = "http://hddguru.com/software/HDD-Raw-Copy-Tool/HDDRawCopy1.10Portable.exe"
+window.open(url);
+}
+var home_href = document.getElementById('hdd');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_hddraw(target)}, false);
+*/
+
+function execute_etcher(element)
+{
+var url = "https://www.balena.io/etcher/"
+window.open(url);
+}
+var home_href = document.getElementById('etch');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_etcher(target)}, false);
+
+function execute_op(element)
+{
+var url = "https://bitcointalk.org/index.php?topic=%205098244.0"
+window.open(url);
+}
+var home_href = document.getElementById('op');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_op(target)}, false);
+
+</script>
+</body>
+</html>

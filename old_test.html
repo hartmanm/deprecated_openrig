@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html lang="en">
+<head>
+<title>openrig.net</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+.header {padding-top: 30px; text-align: center; color: white; background-color: #012060;}
+.navbar {display: flex; background-color: #333; padding: 0px;}
+.navbar a {color: white; padding: 14px 20px; text-decoration: none; text-align: center;}
+.navbar a:hover {background-color: #ddd; color: black;}
+.grid-container0{
+display: grid;
+align: center;
+grid-template-columns: 4;
+grid-gap: 10px;
+justify-items: center;
+margin-left: 1px;
+margin-right: 1px;
+margin-top: 10px;
+margin-bottom: 0px;
+grid-template-areas:
+"e r t y"
+"a b c d";}
+.e {grid-area: e;}
+.r {grid-area: r;}
+.t {grid-area: t;}
+.a {grid-area: a;}
+.b {grid-area: b;}
+.c {grid-area: c;}
+.y {grid-area: y;}
+.d {grid-area: d;}
+
+
+.grid-container1{
+display: grid;
+align: center;
+grid-template-columns: 3;
+grid-gap: 10px;
+justify-items: center;
+margin-left: 1px;
+margin-right: 1px;
+margin-top: 10px;
+margin-bottom: 0px;
+grid-template-areas:
+"u i z"
+"q w o";}
+.u {grid-area: u;}
+.q {grid-area: q;}
+.i {grid-area: i;}
+.w {grid-area: w;}
+.o {grid-area: o;}
+.z {grid-area: z;}
+
+lamda_link{transform: scale(1);}
+lamda_link:hover,lamda_link:active,lamda_link:focus{transform: scale(1.25); transition: transform .2s; padding-top: 15px; padding-bottom: 17px; cursor: pointer;}
+
+.grid-container{
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+grid-template-areas:
+"u2"
+"v"
+"t"
+"q"
+"l"
+"ll";}
+.u2 {grid-area: u2;}
+signup:hover,signup:active,signup:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+login:hover,login:active,login:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.v {grid-area: v;}
+.t {grid-area: t;}
+.q {grid-area: q;}
+.l {grid-area: l;}
+.ll {grid-area: ll;}
+
+.grid-container2{
+display: grid;
+justify-items: center;
+grid-gap: 10px;
+
+grid-template-areas:
+"w"
+"a"
+"i2"
+"x"
+"s"
+"d"
+"z"
+"g"
+"n";}
+.w {grid-area: w;}
+.a {grid-area: a;}
+.i2 {grid-area: i2;}
+.x {grid-area: x;}
+.s {grid-area: s;}
+.d {grid-area: d;}
+.z {grid-area: z;}
+.g {grid-area: g;}
+.n {grid-area: n;}
+
+body{background:white;}
+}
+code2{padding: 2px 2px; font-family: arial, sans-serif; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+code{padding: 2px 2px; font-family: arial, sans-serif; border-radius: 2px;}
+thousand_series2{padding: 2px 2px; font-family: arial, sans-serif; color: #0F640F; background-color: #DAF0DA; border-radius: 2px;}
+thousand_series{font-family: arial, sans-serif; color: #0F640F; border-radius: 2px;}
+download{padding: 2px 2px; font-family: arial, sans-serif; color: #12192A; background-color: #CFD0D1; border-radius: 2px;}
+signup{padding: 2px 2px; font-family: arial, sans-serif; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+login{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+
+</style>
+</head>
+<body>
+<div class="header">
+<h1>openrig.net</h1>
+<p>easy-to-use Nvidia GPU mining management</p>
+</div>
+<div class="grid-container" id="main">
+<div class="u2"><signup id="signup">Signup</signup>&nbsp&nbsp<login id="login">Login</login></div>
+<div class="v"></div>
+<div class="t">oros mining OS supports mining:</div>
+<div class="l"><div id="base" class="grid-container0"></div></div>
+<div class="ll"><div id="base1" class="grid-container1"></div></div>
+</div>
+<div class="grid-container2" id="main2">
+<div class="w"></div>
+<div class="a"></div>
+<div class="i2">with:</div>
+<div class="x"><thousand_series>Nvidia 1000 series GPUs</thousand_series></div>
+<div class="d">dev fee:</div>
+<div class="z">1%</div>
+<div class="g">1% is 864 seconds of each day</div> <!-- 0.05% is 432 seconds of each day -->
+<div class="n">Configure, edit, reboot, update, and monitor rigs.</div>
+</div>
+<script>
+const overlord = 'https://openrig.net';
+
+var base = document.getElementById("base");
+var base1 = document.getElementById("base1");
+
+var ddiv = document.createElement("div");
+ddiv.className = "a";
+ddiv.id = 'ethinfo';
+ddiv.innerHTML = "ETH";
+ddiv.style.display = "none";
+base.appendChild(ddiv);
+
+var ddiv = document.createElement("div");
+ddiv.className = "b";
+ddiv.id = 'etcinfo';
+ddiv.innerHTML = "ETC";
+ddiv.style.display = "none";
+base.appendChild(ddiv);
+
+var ddiv = document.createElement("div");
+ddiv.className = "c";
+ddiv.id = 'rvninfo';
+ddiv.innerHTML = "RVN";
+ddiv.style.display = "none";
+base.appendChild(ddiv);
+
+var ddiv = document.createElement("div");
+ddiv.className = "d";
+ddiv.id = 'btginfo';
+ddiv.innerHTML = "BTG";
+ddiv.style.display = "none";
+base.appendChild(ddiv);
+
+var ddiv = document.createElement("div");
+ddiv.className = "q";
+ddiv.id = 'aioninfo';
+ddiv.innerHTML = "AION";
+ddiv.style.display = "none";
+base1.appendChild(ddiv);
+
+var ddiv = document.createElement("div");
+ddiv.className = "w";
+ddiv.id = 'anoninfo';
+ddiv.innerHTML = "ANON";
+ddiv.style.display = "none";
+base1.appendChild(ddiv);
+
+var ddiv = document.createElement("div");
+ddiv.className = "o";
+ddiv.id = 'niceinfo';
+ddiv.innerHTML = "&nbsp&nbspX16R<br>ZHASH";
+ddiv.style.display = "none";
+base1.appendChild(ddiv);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "e";
+ddiv.innerHTML = '<img src="ether.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'eth';
+base.appendChild(ddiv);
+function execute_q(element)
+{
+var url = "https://www.ethereum.org"
+window.open(url);
+}
+var lamdalink = document.getElementById('eth');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_q(target)}, false);
+
+function hover_q(element)
+{
+var out = document.getElementById('ethinfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('eth');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_q(target)}, false);
+
+function leave_q(element)
+{
+var out = document.getElementById('ethinfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('eth');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_q(target)}, false);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "r";
+ddiv.innerHTML = '<img src="etherclassic.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'etc';
+base.appendChild(ddiv);
+function execute_r(element)
+{
+var url = "https://ethereumclassic.org"
+window.open(url);
+}
+var lamdalink = document.getElementById('etc');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_r(target)}, false);
+
+function hover_r(element)
+{
+var out = document.getElementById('etcinfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('etc');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_r(target)}, false);
+
+function leave_r(element)
+{
+var out = document.getElementById('etcinfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('etc');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_r(target)}, false);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "t";
+ddiv.innerHTML = '<img src="rvn.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'rvn';
+base.appendChild(ddiv);
+function execute_t(element)
+{
+var url = "http://ravencoin.org"
+window.open(url);
+}
+var lamdalink = document.getElementById('rvn');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_t(target)}, false);
+
+function hover_t(element)
+{
+var out = document.getElementById('rvninfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('rvn');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_t(target)}, false);
+
+function leave_t(element)
+{
+var out = document.getElementById('rvninfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('rvn');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_t(target)}, false);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "y";
+ddiv.innerHTML = '<img src="btg.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'btg';
+base.appendChild(ddiv);
+function execute_y(element)
+{
+var url = "https://bitcoingold.org"
+window.open(url);
+}
+var lamdalink = document.getElementById('btg');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_y(target)}, false);
+
+function hover_y(element)
+{
+var out = document.getElementById('btginfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('btg');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_y(target)}, false);
+
+function leave_y(element)
+{
+var out = document.getElementById('btginfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('btg');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_y(target)}, false);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "u";
+ddiv.innerHTML = '<img src="aion.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'aion';
+base1.appendChild(ddiv);
+function execute_u(element)
+{
+var url = "https://aion.network"
+window.open(url);
+}
+var lamdalink = document.getElementById('aion');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_u(target)}, false);
+
+function hover_u(element)
+{
+var out = document.getElementById('aioninfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('aion');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_u(target)}, false);
+
+function leave_u(element)
+{
+var out = document.getElementById('aioninfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('aion');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_u(target)}, false);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "i";
+ddiv.innerHTML = '<img src="anon.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'anon';
+base1.appendChild(ddiv);
+function execute_i(element)
+{
+var url = "https://www.anonymousbitcoin.io"
+window.open(url);
+}
+var lamdalink = document.getElementById('anon');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_i(target)}, false);
+
+function hover_i(element)
+{
+var out = document.getElementById('anoninfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('anon');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_i(target)}, false);
+
+function leave_i(element)
+{
+var out = document.getElementById('anoninfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('anon');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_i(target)}, false);
+
+
+var ddiv = document.createElement("lamda_link");
+ddiv.className = "z";
+ddiv.innerHTML = '<img src="nice.png" style="width:50px;height:50px;"/>';
+ddiv.id = 'nice';
+base1.appendChild(ddiv);
+function execute_z(element)
+{
+var url = "https://www.nicehash.com"
+window.open(url);
+}
+var lamdalink = document.getElementById('nice');
+lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_z(target)}, false);
+
+function hover_z(element)
+{
+var out = document.getElementById('niceinfo');
+out.style.display = "block";
+}
+var lamdalink = document.getElementById('nice');
+lamdalink.addEventListener("mouseover", function(e){var target = e.target || e.srcElement; hover_z(target)}, false);
+
+function leave_z(element)
+{
+var out = document.getElementById('niceinfo');
+out.style.display = "none";
+}
+var lamdalink = document.getElementById('nice');
+lamdalink.addEventListener("mouseleave", function(e){var target = e.target || e.srcElement; leave_z(target)}, false);
+
+
+
+
+function execute_signup(element)
+{
+var url = overlord + "/signup";
+window.location.href = url;
+}
+
+var signup_href = document.getElementById('signup');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_signup(target)}, false);
+
+function execute_login(element)
+{
+var url = overlord + "/login";
+window.location.href = url;
+}
+var signup_href = document.getElementById('login');
+signup_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_login(target)}, false);
+
+</script>
+<br><br><br><br><br><br>
+</body>
+</html>

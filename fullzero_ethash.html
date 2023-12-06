@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>nvps</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{background:white;}
+</style>
+</head>
+<body>
+<div id="base"></div>
+<script>
+/*
+<div style="display:none; visibility:hidden">{"PMT":"0x6FA36bd2c62447929e1f1012265Cb51980f6C164", "INV":"1", "TX_MIN":"0.1", "MFW":"1"}</div>
+<div id="time"></div>
+
+function get_date(){
+var date = new Date(),
+month = '' + (date.getMonth() + 1),
+day = '' + date.getDate(),
+year = date.getFullYear(),
+hours = '' + date.getHours();
+if (month.length < 2) month = '0' + month;
+if (day.length < 2) day = '0' + day;
+date = [year, month, day, hours].join('-');
+date = "|" + date + "|";
+return date;}
+window.onload = function what(){var dtg = document.getElementById("time").innerHTML = get_date();};
+setTimeout(function(){
+var dtg = document.getElementById("time").innerHTML = get_date();
+}, 60000);
+*/
+function get_date(){
+var date = new Date(),
+month = '' + (date.getMonth() + 1),
+day = '' + date.getDate(),
+year = date.getFullYear(),
+hours = '' + date.getHours();
+if (month.length < 2) month = '0' + month;
+if (day.length < 2) day = '0' + day;
+date = [year, month, day, hours].join('-');
+return date;}
+var date = {};
+function shell(){date = get_date();}
+shell();
+function refresh(){shell();}
+var timer = setInterval(refresh, 60000);
+var core = {"PMT":"0x6FA36bd2c62447929e1f1012265Cb51980f6C164", "INV":"1", "TX_MIN":"0.1", "MFW":"1"};
+core['DTG'] = date;
+core = JSON.stringify(core);
+var dtg = document.getElementById("base").innerHTML = core;
+</script>
+</body>
+</html>

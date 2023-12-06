@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>&nbsp Frequently Asked Questions</title>
+</head>
+<style>
+.q{font-weight: bold;}
+.a{font-style: italic;}
+.ddiv{margin-left: auto; margin-right: auto; text-align: left; display: block; color: #414643; font-family: Lato, sans-serif; font-size: 100%; line-height: 1.125; max-width: 80%;}
+h1,h2{text-align: left; color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 340;line-height: 1.125;}
+</style>
+<body>
+<section class="ddiv">
+<br>
+<h1>Frequently Asked Questions</h1>
+<br><br>
+<div>For reference: PL,CC,MC,FS,EH</div>
+<br>
+<div>PL is Power Limit (in watts)</div>
+<div>CC is Core Overclock (offset from stock clock, use 0 for stock clock)</div>
+<div>MC is Memory Overclock (offset from stock clock, use 0 for stock clock)</div>
+<div>FS is Fan Speed (in percent, use 49 or lower for automatic/dynamic speed)</div>
+<div>EH is Expected Hashrate (this is the hashrate you expect from the rig)</div>
+<br>
+<div>Ensure you set EH low until you are sure what to expect, otherwise you will send your rig into a boot loop.</div>
+<br>
+
+<br>
+<div>There is a bug in Firefox that interferes with download events.</div>
+<br>
+<div>Please use Chrome, Safari, or Edge.</div>
+<br>
+
+<br>
+<div>Rig List will automatically update every minute.</div>
+<br>
+
+<br>
+<div>You may only have 1 active session at a time.  If you log in with multiple devices, only the newest session will allow modifications.  The older session will be disabled.</div>
+<br>
+<div>Your session will timeout after 1 hour and you will be required to sign in again.</div>
+<br>
+
+<div class="q">
+Q: Is it possible to see the console screen?
+</div>
+<br>
+<div class="a">
+A: By clicking the console button you will display the rig Public IP, Private IP, MAC address and the last 10 lines of the console received from the rig.  Click it again to close the display.
+</div>
+<br>
+<div class="a">
+The watchdog will send hashrate and console updates every 60 seconds.
+</div>
+<br>
+<div class="a">
+If a rig fails to update its hashrate multiple times consecutively it will be added to the drop list and a large red button will appear below the LOG.  This button will have the rig number and the time the drop was detected.  It can be dismissed by clicking.
+<br>
+When a rig is added to the droplist, it is annotated in the LOG in addition to creating a red button.
+<br>
+</div>
+<br>
+<div class="q">
+Q: When I update settings do I have to reboot each rig to enable the changes or is it automatic?
+</div>
+<br>
+<div class="a">
+A: Every rig checks for configuration updates every 60 seconds.  If there is any modification it will implement it automatically.  There is no need to manually reboot.  If you only want to restart the mining client and watchdog click the reclient button.  It will stop the mining process and watchdog and reinitialize them.
+</div>
+<br>
+<div class="q">
+Q: What does the orange delete button do?
+</div>
+<br>
+<div class="a">
+A: delete when clicked allows for the deletion of the last created group or rig.  When clicking it you should see a red delete button appear.  Because the intent is for the interface to work for smartphones and tablets in addition to PCs; the additional confirmation guards against most accidental deletions. As groups and rigs can easily be repurposed the only reason to delete (a group or rig) should be when it is no longer needed.
+<br>
+</div>
+<br>
+<div class="q">
+Q: For Ethash and x16r how can I enter the worker name?
+</div>
+<br>
+<div class="a">
+A: There is no way to modify workernames using COIN selections, they are hardcoded to the rig number.  If you set the COIN to CLIENT you can use any arguments you wish.
+<br>
+</div>
+<br>
+<div class="q">
+Q: Can I just add something like this? stratum+tcp://rvn.suprnova.cc:6667 -u user.miner22 -p x
+</div>
+<br>
+<div class="a">
+A: Yes, you can use a normal execution line with the CLIENT_ARGS field.  Set COIN to CLIENT, choose a mining client from the CLIENT dropdown, enter your client arguments in the CLIENT_ARGS field, and finally set your OC with the CLIENT_OC field.
+</div>
+<br>
+<div class="q">
+Q: If I have a question what do I do?
+</div>
+<br>
+<div class="a">
+A: Post a question on the forum OP or in the Discord.
+</div>
+<br>
+<div class="q">
+Q: Is the H/s the current hash or average?
+</div>
+<br>
+<div class="a">
+A:  It is the last response from the Rig.  The Rigs do not maintain a connection to the back-end, instead, they interact with an API by sending and receiving messages.  When using email updates or telegram; all changes will trigger an email or telegram update.
+</div>
+<br>
+<div class="q">
+Q: I'm just testing and maybe impatient but I can't see the RVN mining
+being done on nanopool.  I’m reading it takes about 20 minutes for them
+to update.
+</div>
+<br>
+<div class="a">
+A: Click the console button and see what it shows.  If you have not enabled EMAIL_UPDATES or added Telegram, do so as they will provide you will additional information.
+<br>
+</div>
+<br>
+<div class="q">
+Q: I assume if I see reload 1 then 2 then 3 something is wrong and it is automatically resetting.
+</div>
+<br>
+<div class="a">
+A: Again check the console and emails for more information.  The watchdog will try stopping and restarting the mining process until it exceeds 3 attempted restarts within a threshold; then it will reboot.  If there is a configuration problem that is not corrected this will occur in a loop.
+</div>
+<br>
+<div class="q">
+Q: How do you check the IP of each rig? Is there an option? My hosting provider will start putting all of the rigs on openrig, but they won't check the ip of each when they convert.
+</div>
+<br>
+<div class="a">
+A: By clicking the console button you will display the rig Public IP, Private IP, and MAC address.
+<br>
+In addition, the IP (full IP) and Mac (last 3 characters) are sent with each email update or telegram, in addition to GPU_COUNT, RIG#, VERSION# and the RIG LOG.
+<br>
+RIG LOG is stored in memory on the rig (is cleared on reboot) and will append new events such as:
+<br>
+new settings detected and implemented
+<br>
+low utilization triggering a restart of the mining client
+<br>
+low hashrate triggering a restart of the client
+<br>
+rebooting due to successive low utilization or hashrate
+<br>
+Startup, update, or initial reboot (_init)
+<br>
+All RIG LOG entries have a full date and time stamp.
+</div>
+<br>
+
+
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+const overlord = 'https://openrig.net';
+</script>
+</body>
+</html>

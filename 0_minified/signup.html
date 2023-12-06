@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&nbsp Signup</title>
+</head>
+<body>
+<style>
+body{background-color:#746793; -webkit-app-region: drag;}
+code{padding: 4px 4px;font-size: 115%;color: #032166;background-color: #CBD3EE;border-radius: 2px;}
+.l{margin-left: 12px; margin-bottom: 25px;}
+.feedback{margin-bottom: 10px;}
+h1,h2{color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 340;line-height: 1.125;}
+
+.content_heading{color: white; margin-left: 12px; margin-top: 0px; font-size: 150%; margin-block-end: 5px;}
+tos{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+tos:hover,tos:active,tos:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+home{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+home:hover,home:active,home:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.dropdown{display: block; margin-top: 4px; padding: 8px; padding: 8px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 20%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.dropdown:focus,.dropdown:active {border-color: #686a69; outline: 0;}
+pa{color:white;}
+.form{display: block;}
+.form_input_group{margin-top: 4px; margin-top: 0.25rem; padding: 0.5rem 1rem;}
+.form_label{display: block; color: white; font-family: Lato, sans-serif; font-size: 75%; line-height: 1.125;}
+.form_input{display: block; margin-top: 4px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 80%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+
+.form_button{margin-top: 15px; margin-bottom: 15px; margin-left: 25px; padding: 1px 1px; font-size: 115%; color: #12192A; background-color: #CFD0D1; border-radius: 2px;}
+.form_button:hover,.form_button:active,.form_button:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0;}
+.lamdalink{color: white; margin-left: 80px; margin-bottom: 25px;}
+.content{max-width: 390px; margin-left: auto; margin-right: auto;}
+.section{margin-left: auto; margin-right: auto; width: 100%;}
+</style>
+<div class="section">
+<section class="content">
+<br>
+
+<br>
+<br>
+<h1 class="content_heading">ALL ACCOUNTS WITHOUT AN ACTIVE MINER FOR A TIMEPERIOD OF LONGER THAN 2 WEEKS WILL BE DELETED</h1>
+<br>
+<!--
+<h1 class="content_heading">NO NEW ACCOUNTS CAN BE MADE AT THIS TIME WITHOUT DIRECT AUTHORIZATION</h1>
+<br>
+<h1 class="content_heading">EMAIL</h1>
+<br>
+<h1 class="content_heading">admin@openrig.net</h1>
+<br>
+<h1 class="content_heading">TO REQUEST AUTHORIZATION</h1>
+<br>
+<br>
+-->
+
+<div class="l"><tos id="terms_of_service">TERMS AND CONDITIONS</tos>&nbsp<tos id="privacy_policy">PRIVACY POLICY</tos></div>
+<h1 class="content_heading">Signup</h1>
+<form class="form">
+<div class="form_input_group">
+<label class="form_label" for="EMAIL_ADDRESS">EMAIL ADDRESS</label>
+<input class="form_input form_input--EMAIL_ADDRESS" id="EMAIL_ADDRESS" value="" name="EMAIL_ADDRESS" type="text"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="PASSWORD">PASSWORD (at least 12 characters)</label>
+<input class="form_input form_input--PASSWORD" id="PASSWORD" value="" name="PASSWORD" type="password"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="PASSWORD2">confirm PASSWORD</label>
+<input class="form_input form_input--PASSWORD2" id="PASSWORD2" value="" name="PASSWORD2" type="password"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="TOS">Accept Terms Of Service and Privacy Policy (by selecting YES)</label>
+<select class="dropdown" id="TOS" value="" name="TOS" type="text"/>
+<option>NO</option>
+<option>YES</option>
+</select>
+</div>
+<button class="form_button" type="submit">Submit</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<pa>return to&nbsp</pa><home id="home_href">openrig.net</home>
+</form>
+<code class="feedback" id="feedback0"></code>
+<code class="feedback" id="feedback1"></code>
+<code class="feedback" id="feedback2"></code>
+<code class="feedback" id="feedback3"></code>
+</section>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+"use strict";const NEWUSER_AUTHORIZED=1,overlord="https://openrig.net";var feedback0=document.getElementById("feedback0");feedback0.style.display="none";var feedback1=document.getElementById("feedback1");feedback1.style.display="none";var feedback2=document.getElementById("feedback2");feedback2.style.display="none";var feedback3=document.getElementById("feedback3");function execute_openrig(e){var t=overlord;window.location.href=t}feedback3.style.display="none";var tos,home_href=document.getElementById("home_href");function execute_tos(e){var t=overlord+"/terms_of_service";window.location.href=t}function execute_pp(e){var t=overlord+"/privacy_policy";window.location.href=t}home_href.addEventListener("click",function(e){execute_openrig(e.target||e.srcElement)},!1),(tos=document.getElementById("terms_of_service")).addEventListener("click",function(e){execute_tos(e.target||e.srcElement)},!1),(tos=document.getElementById("privacy_policy")).addEventListener("click",function(e){execute_pp(e.target||e.srcElement)},!1);var form_to_json=function(e){return[].reduce.call(e,function(e,t){return e[t.name]=t.value,e},{})},submit_form=function(e){e.preventDefault();var t=document.getElementById("feedback0");t.innerHTML="",t.style.display="block";var n=document.getElementById("feedback1");n.innerHTML="",n.style.display="block";var d=document.getElementById("feedback2");d.innerHTML="",d.style.display="block";var o=document.getElementById("feedback3");o.innerHTML="",o.style.display="block";var r=form_to_json(form.elements);if(""!=r.PASSWORD&&null!=r.PASSWORD){if(r.PASSWORD.length<12)document.getElementById("feedback1").innerHTML="Password must be at least 12 characters";if(""!=r.EMAIL_ADDRESS&&null!=r.EMAIL_ADDRESS){if(0==r.EMAIL_ADDRESS.includes("@"))document.getElementById("feedback0").innerHTML="Invalid email address";if("YES"!=r.TOS)document.getElementById("feedback3").innerHTML="You must agree to the TOS by typing YES";if(r.PASSWORD.length>=12&&1==r.EMAIL_ADDRESS.includes("@")&&r.PASSWORD==r.PASSWORD2&&"YES"==r.TOS)addCustomer(JSON.stringify(r));if(0==r.EMAIL_ADDRESS.includes("@"))document.getElementById("feedback0").innerHTML="Invalid email address";if(r.PASSWORD.length<12)document.getElementById("feedback1").innerHTML="Password must be at least 12 characters";if(r.PASSWORD!=r.PASSWORD2)document.getElementById("feedback2").innerHTML="Password entries must match";if("YES"!=r.TOS)document.getElementById("feedback3").innerHTML="You must agree to the TOS by typing YES"}}},form=document.getElementsByClassName("form")[0];function addCustomer(e){if(1==NEWUSER_AUTHORIZED){var t=JSON.parse(e),n=JSON.stringify(t),d=new XMLHttpRequest,o=overlord+"/customer";d.open("POST",o,!0),d.setRequestHeader("Content-Type","text/html; charset=UTF-8"),d.addEventListener("load",function(){if(d.status>=200&&d.status<403){var e=document.getElementById("feedback0");e.innerHTML="",e.style.display="none";var t=document.getElementById("feedback1");t.innerHTML="",t.style.display="none";var n=document.getElementById("feedback2");n.innerHTML="",n.style.display="none";var o=d.responseText;document.getElementById("feedback3").innerHTML=o}else console.log("Error: "+d.statusText)}),d.send(n)}}form.addEventListener("submit",submit_form);
+</script>
+<br>
+<br>
+<br>
+</body>
+</html>

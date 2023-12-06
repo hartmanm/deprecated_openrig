@@ -1,0 +1,55 @@
+#!/bin/bash
+cd /media/ramdisk
+UP="/media/ramdisk/update.zip"
+if [[ -d $UP ]]
+then
+sudo rm $UP
+fi ## [[ -d $UP ]]
+FILENAME="update.zip"
+wget --no-check-certificate "https://openrig.net/update.zip" -O $FILENAME
+sleep 2
+unzip $FILENAME
+sleep 4
+# operations here
+
+#
+#sudo rm /home/m1/2unix
+#sleep 4
+#sudo mv /media/ramdisk/2unix /home/m1/2unix
+#sleep 4
+#chmod +x /home/m1/2unix
+#sleep 4
+#
+
+# update version
+ZRIG="/media/ramdisk/0rig*"
+zrig=$(sed -e 's/\r$//' $ZRIG)
+USER_ID=$(/usr/bin/curl $zrig 2>/dev/null | awk -F'"' '$2=="USER_ID"{printf("%s ", $4)}' | xargs)
+RIG_NUMBER=$(/usr/bin/curl $zrig 2>/dev/null | awk -F'"' '$2=="RIG_NUMBER"{printf("%s ", $4)}' | xargs)
+CUSTOMER_KEY=$(/usr/bin/curl $zrig 2>/dev/null | awk -F'"' '$2=="CUSTOMER_KEY"{printf("%s ", $4)}' | xargs)
+OVERLORD=$(/usr/bin/curl $zrig 2>/dev/null | awk -F'"' '$2=="OVERLORD"{printf("%s ", $4)}' | xargs)
+getRigs()
+{
+AUTH="${CUSTOMER_KEY}"
+RIGS=$(/usr/bin/curl --header "Authorization: $AUTH" $OVERLORD/user/$USER_ID/rigs)
+sleep 2
+t=$RIGS
+t=${t// /}
+t=${t//,/ }
+t=${t##[}
+t=${t%]}
+eval a=($t)
+target=$(($RIG_NUMBER - 1))
+RIG=$(/usr/bin/curl --header "Authorization: $AUTH" $OVERLORD${a[target]})
+var=self
+out=$(echo $RIG | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w $var)
+eval b=($out)
+SELF=${b[1]}
+}
+getRigs
+sleep 2
+MSG='{"VERSION": "1.4"}'
+BULLET="${MSG}"
+AUTH="${CUSTOMER_KEY}"
+OUTPUT_LINE="$OVERLORD$SELF"
+/usr/bin/curl -X PATCH --output /dev/null $OUTPUT_LINE --header "Authorization: $AUTH" --header "Content-Type: application/json" -d "$BULLET"

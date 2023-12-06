@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&nbsp Edit Rig</title>
+</head>
+<body>
+<style>
+body{background:white; -webkit-app-region: drag;}
+code{padding: 4px 4px;font-size: 115%;color: #032166;background-color: #CBD3EE;border-radius: 2px;}
+h1,h2{color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 340;line-height: 1.125;}
+.content_heading{margin-left: 20px; margin-top: 40px;font-size: 125%;}
+.dropdown{display: block; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 55%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.dropdown:focus,.dropdown:active {border-color: #686a69; outline: 0;}
+.form{position: relative; display: block; margin: 4px; padding: 0px 80px 20px 10px;}
+.form_input_group{margin-top: 4px; margin-top: 4px; margin-top: 0.25rem; padding: 8px 16px; padding: 8px 16px; padding: 0.5rem 1rem;}
+.form_label{display: block; color: #414643; font-family: Lato, sans-serif; font-size: 75%; line-height: 1.125;}
+.form_input{display: block; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; width: 100%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+.form_button{margin-bottom: 40px; margin-top: 40px; margin-left: 25px; padding: 1px 1px; font-size: 115%; color: #12192A; background-color: #CFD0D1; border-radius: 2px;}
+.form_button:hover,.form_button:active,.form_button:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0;}
+.lamdalink{margin-bottom: 25px; margin-top: 40px;}
+.lamdalink:hover,.lamdalink:active,.lamdalink:focus{color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0; text-decoration: none;}
+.section{margin-left: auto; margin-right: auto; width: 100%;}
+.content{max-width: 680px; margin-left: auto; margin-right: auto;}
+.form_input_client_args{word-wrap: break-word; word-break: break-all; height: 95px; width: 100%; margin-top: 4px; padding: 8px 12px; padding: 8px 12px; padding: 0.5rem 0.75rem; border: 1px solid #cdcfcf; font-family: 'Open Sans', sans-serif; font-size: 16px; font-size: 16px; font-size: 1rem;}
+</style>
+<section class="section">
+<section class="content">
+<h1 class="content_heading">Edit Rig</h1>
+<form autocomplete="off" class="form">
+<div id=USER_ID></div>
+<div id=USE_GROUP_OC></div>
+<div id="CHATID"></div>
+<div id="APIKEY"></div>
+<div id=EMAIL_UPDATES></div>
+<div class="form_input_group">
+<label class="form_label" for="RIG_NUMBER">RIG_NUMBER</label>
+<input class="form_input form_input--RIG_NUMBER" id="RIG_NUMBER" value="" readonly name="RIG_NUMBER" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="COIN">COIN ( RVN  CLIENT )</label>
+<select hidden class="dropdown" id="COIN" value="" name="COIN" type="text"/>
+<option>RVN</option>
+<option>CLIENT</option>
+</select>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="GROUP_NUMBER">GROUP_NUMBER (1, 2, 3, 4, or 5)  example: 1</label>
+<select class="dropdown" id="GROUP_NUMBER" value="" name="GROUP_NUMBER" type="text"/>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="X16R_SPECIFIC_OC_SETTINGS">RVN_SPECIFIC_OC_SETTINGS (PL,CC,MC,FS,EH) example: 106,100,500,49,1</label>
+<input hidden class="form_input form_input--X16R_SPECIFIC_OC_SETTINGS" id="X16R_SPECIFIC_OC_SETTINGS" value="" name="X16R_SPECIFIC_OC_SETTINGS" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="RVN_ADDRESS">RVN_ADDRESS</label>
+<input hidden class="form_input form_input--RVN_ADDRESS" id="RVN_ADDRESS" value="" name="RVN_ADDRESS" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="RVN_POOL">RVN_POOL   example:  stratum+tcp://rvn-us-east1.nanopool.org:12222</label>
+<input hidden class="form_input form_input--RVN_POOL" id="RVN_POOL" value="" name="RVN_POOL" type="text"/>
+</div>
+<div hidden class="form_input_group">
+<label hidden class="form_label" for="NANOPOOL_EMAIL">RVN_NANOPOOL_EMAIL   example:  myemail@gmail.com</label>
+<input hidden class="form_input form_input--NANOPOOL_EMAIL" id="NANOPOOL_EMAIL" value="" name="NANOPOOL_EMAIL" type="text"/>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="CLIENT">CLIENT ( select a mining client )</label>
+<select class="dropdown" id="CLIENT" value="" name="CLIENT" type="text"/>
+<option>bci_progpowminer</option>
+<option>bminer_15_5_1</option>
+<option>claymore_12_0</option>
+<option>cryptodredge_0_19_1_c10</option>
+<option>cryptodredge_0_18_0_c10</option>
+<option>cryptodredge_v0_18_0_cuda_9_2</option>
+<option>cryptodredge_v0_17_0_cuda_9_2</option>
+<option>ethminer_0_17_1</option>
+<option>ewbf</option>
+<option>fullzero</option>
+<option>gminer_1_42</option>
+<option>gminer_1_41</option>
+<option>gminer_1_40</option>
+<option>gminer_1_39</option>
+<option>gminer_1_38</option>
+<option>PhoenixMiner_4_2c</option>
+<option>trex_0_14_4_c10</option>
+<option>trex_0_10_2_c10</option>
+<option>trex_0_9_2_c10</option>
+<option>trex_0_9_2_c9</option>
+<option>xmrstak</option>
+<option>z_enemy_2_0</option>
+<!--
+<option>claymore_14_2</option>
+<option>z_enemy_1_28</option>
+-->
+</select>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="CLIENT_ARGS">CLIENT_ARGS (arguments for mining client, use $RIG for workername)  example: --server grincuckaroo29.usa.nicehash.com --port 3371 --user  YOUR_NICE_BTC_ADDRESS.$RIG -p x --algo grin29 --pec 0 -w 0</label>
+<textarea class="form_input_client_args" id="CLIENT_ARGS" value="" name="CLIENT_ARGS" type="text"></textarea>
+</div>
+<div class="form_input_group">
+<label class="form_label" for="CLIENT_OC">CLIENT_OC (PL,CC,MC,FS,EH) example: 106,100,500,49,1</label>
+<input class="form_input form_input--CLIENT_OC" id="CLIENT_OC" value="" name="CLIENT_OC" type="text"/>
+</div>
+<button class="form_button" type="submit">Submit</button> &nbsp&nbsp&nbsp&nbsp <code id="feedback"></code>
+</form>
+<br>
+&nbsp&nbsp&nbsp&nbsp <code class="lamdalink" id="return"></code>
+</section>
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+'use strict';
+const overlord = 'https://openrig.net';
+const riglist_url = "https://openrig.net/riglist/";
+
+var session = "";
+var auth = "";
+var basis = {};
+var rna = {};
+fillForm();
+
+var form_to_json = function form_to_json(elements){
+return [].reduce.call(elements, function (data, element){data[element.name] = element.value; return data;}, {});
+};
+var submit_form = function submit_form(event){
+event.preventDefault();
+var data = form_to_json(form.elements);
+
+data['USE_GROUP_OC'] = document.getElementById('USE_GROUP_OC').value;
+var data_box = JSON.stringify(data);
+sendEdits(data_box);
+};
+var form = document.getElementsByClassName('form')[0];
+form.addEventListener('submit', submit_form);
+
+
+function get_auth()
+{
+var uid = "";
+var newURL = window.location.toString();
+var here = newURL.indexOf("S");
+var resp = newURL.slice(here);
+var here2 = newURL.indexOf("_");
+var rn = newURL.slice(here2);
+var rnlength = rn.length;  // note is with _
+rn = rn.slice(1);
+var temp = resp.slice(0,-rnlength);
+session = temp;
+var url = overlord + "/sid_auth/" + session;
+var req = new XMLHttpRequest();
+req.open("GET", url, false);
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = req.responseText;
+var i = 0
+while (i < 200)
+{response = response.replace('"', ''); i++;}
+auth = response;
+}else{console.log( "Error: " + req.statusText );}
+});
+req.send( null );
+}
+
+
+function get_uid_rid()
+{
+var uid = "";
+var newURL = window.location.toString();
+var here = newURL.indexOf("S");
+var resp = newURL.slice(here);
+var here2 = newURL.indexOf("_");
+var rn = newURL.slice(here2);
+var rnlength = rn.length;  // note is with _
+rn = rn.slice(1);
+var rigname = "";
+var temp = resp.slice(0,-rnlength);
+session = temp;
+var url = overlord + "/sid_uid/" + session;  // add auth req  CUSTOMER_KEY ??
+var req = new XMLHttpRequest();
+req.open("GET", url, false);
+req.setRequestHeader('Authorization', auth);
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = req.responseText;
+var i = 0
+while (i < 200)
+{response = response.replace('"', ''); i++;}
+uid = response;
+var u_self = document.getElementById('USER_ID').value = uid;
+}else{console.log( "Error: " + req.statusText );}
+});
+req.send( null );
+
+
+// get rignumber with user data
+var req = new XMLHttpRequest();
+var url = overlord + "/user/" + uid + "/rigs";
+req.open("GET", url, false);
+req.setRequestHeader('Authorization', auth);
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){
+var response = JSON.parse(req.responseText);
+rigname = response[rn];
+}
+else{console.log( "Error: " + req2.statusText );}
+});
+req.send(null);
+
+
+// get rig with uid and rignumber
+var req2 = new XMLHttpRequest();
+var rig_url = overlord + rigname;
+req2.open("GET", rig_url, false);
+req2.setRequestHeader('Authorization', auth);
+req2.addEventListener( "load",function(){
+if( req2.status >= 200 && req2.status < 403 ){
+rna = req2.responseText;
+}
+else{console.log( "Error: " + req2.statusText );}
+});
+req2.send(null);
+///
+
+
+}
+
+
+function fillForm()
+{
+get_auth();
+get_uid_rid();
+var respJSON = JSON.parse(rna);
+var id = document.getElementById('USER_ID').value;
+var rn = document.getElementById('RIG_NUMBER').value = respJSON.RIG_NUMBER;
+var cid = document.getElementById('CHATID').value = basis.CHATID;
+var api = document.getElementById('APIKEY').value = basis.APIKEY;
+var rvn = document.getElementById('RVN_ADDRESS').value = respJSON.RVN_ADDRESS;
+var xss = document.getElementById('X16R_SPECIFIC_OC_SETTINGS').value = respJSON.X16R_SPECIFIC_OC_SETTINGS;
+var gn = document.getElementById('GROUP_NUMBER').value = respJSON.GROUP_NUMBER;
+var coin = document.getElementById('COIN').value = "CLIENT";
+var client = document.getElementById('CLIENT').value = respJSON.CLIENT;
+var group_oc = document.getElementById('USE_GROUP_OC').value = respJSON.USE_GROUP_OC;
+var rvnp = document.getElementById('RVN_POOL').value = respJSON.RVN_POOL;
+var email = document.getElementById('NANOPOOL_EMAIL').value = respJSON.NANOPOOL_EMAIL;
+var emailswitch = document.getElementById('EMAIL_UPDATES').value = basis.EMAIL_UPDATES;
+var clientargs = document.getElementById('CLIENT_ARGS').value = respJSON.CLIENT_ARGS;
+var client_oc = document.getElementById('CLIENT_OC').value = respJSON.CLIENT_OC;
+}
+
+
+function sendEdits(form_data)
+{
+var respJSON = JSON.parse(rna);
+var self = respJSON.self;
+var payload = form_data;
+var basis = document.getElementById('feedback');
+var mimeType = "text/plain";
+var req = new XMLHttpRequest();
+var url = overlord + self;
+req.open( "PATCH", url, true );
+req.setRequestHeader('Authorization', auth);
+req.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+req.addEventListener( "load",function(){
+if( req.status >= 200 && req.status < 403 ){var response = JSON.stringify(req.responseText);
+basis.innerHTML = "update complete";
+}
+else{console.log("Error: " + req.statusText);
+basis.innerHTML = "update failed submit again";
+}
+});
+req.send(payload);
+}
+
+
+function execute_return(element)
+{
+setTimeout(function(){
+var url = riglist_url + session;
+window.location.href = url;
+}, 100);
+}
+var tos = document.getElementById('return');
+tos.innerHTML = "return to Rigs";
+tos.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_return(target)}, false);
+</script>
+</body>
+</html>

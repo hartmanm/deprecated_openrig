@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+©2018,2019,2020 Michael Neill Hartman
+-->
+<html lang="en">
+<head>
+<title>Downloads</title>
+<meta charset="utf-8">
+<meta name="Description" content="mining os">
+<meta name="theme-color" content="#012060"/>
+<style>
+
+.header{font-family:"Muli",sans-serif; font-weight:500; line-height:1.1; padding-top:30px; text-align:center; color:white; background-color:#746793;}
+.footer{width:100%; position:fixed; bottom:0px; height: 2vw; color:#ffffff; background-color:#677793;}
+
+home2{text-align: center; border-radius: 2px; font-family: arial, sans-serif; color: #12192A; background-color: #CFD0D1;}
+home2:hover,download:active,download:focus {color: #CFD0D1; background-color: #12192A; cursor:pointer;outline: 0; text-decoration: none}
+
+body{background:white;background-color:#746793;}
+
+home{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+home:hover,home:active,home:focus{color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+.row{display: flex;}
+.column{flex: 50%; padding: 10px; height: 20vw;}
+
+@media screen and (max-width: 1125px){.column{flex: 50%; padding: 10px; height: 45vw;}.footer{width:100%; position:fixed; bottom:-5vw; height: 3.75vw; color:#ffffff; background-color:#677793;}}
+@media screen and (min-width: 1125px){body{transform: scale(1.25); transition: transform 4s;} .l{max-width:450px; margin-left: auto; margin-right: auto;} .header{padding-top: 100px; text-align:center; color:white;}.footer{width:100%; position:fixed; bottom:-5vw; height: 3.75vw; color:#ffffff; background-color:#677793;}}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Downloads</h1>
+<h2>oros Mining OS for Nvidia GPU rigs</h2>
+</div>
+<div class="downloads" style="text-align:center;">
+<div class="row">
+<div class="column"></div>
+<div class="column" style="border-radius:0.5vw;background-color:#dcd0e7; color:#322a3b;text-align:left;">
+<h2>&nbsp&nbsp&nbspv1.4 16.04 Rock Steady</h2>
+&nbsp&nbsp&nbsp- Ubuntu Linux: 16.04 (Xenial)
+<br>
+<br>&nbsp&nbsp&nbsp- Driver: Nvidia 415
+<br>
+<br>&nbsp&nbsp&nbsp- Size: 8.48 GB zipped
+<br>
+<br>&nbsp&nbsp&nbsp- Requires: 16 GB or larger USB key
+<br>
+<br>&nbsp&nbsp&nbsp- Supports:
+<br>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAll 1000 series or later Nvidia GPUs.
+</div>
+<div class="column" style="border-radius:0.5vw;background-color:#ede8f3; color:#1c1820;text-align:center;">
+<br><br><br><br>
+<home id="1604">Download oros 16.04 Rock Steady</home>
+<br><br><br>
+<home2 id="etch1">download etcher imaging program</home2>
+<br><br><br>
+<home2 id="setup_guide">Setup Guide</home2>
+</div>
+<div class="column"></div>
+</div>
+<br><br>
+<div class="row">
+<div class="column"></div>
+<div class="column" style="border-radius:0.5vw;background-color:#ede8f3; color:#1c1820;text-align:left;">
+<h2>&nbsp&nbsp&nbspv1.4 18.04 Beta</h2>
+&nbsp&nbsp&nbsp- Ubuntu Linux: 18.04.2 (Bionic)
+<br>
+<br>&nbsp&nbsp&nbsp- Driver: Nvidia 410
+<br>
+<br>&nbsp&nbsp&nbsp- Size: 7.33 GB zipped
+<br>
+<br>&nbsp&nbsp&nbsp- Requires: 16 GB or larger USB key
+<br>
+<br>&nbsp&nbsp&nbsp- Supports:
+<br>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAll 1000 series or later Nvidia GPUs.
+</div>
+<div class="column" style="border-radius:0.5vw;background-color:#dcd0e7; color:#322a3b;text-align:center;">
+<br><br><br><br>
+<home id="1804">Download oros 18.04 Beta</home>
+<br><br><br>
+<home2 id="etch2">download etcher imaging program</home2>
+<br><br><br>
+<home2 id="setup_guide2">Setup Guide</home2>
+</div>
+<div class="column"></div>
+</div>
+<br><br><br><br><br><br>
+</div>
+<div class="footer"></div>
+<script>
+const overlord = 'https://openrig.net';
+
+function execute_etcher(element)
+{
+var url = "https://www.balena.io/etcher/"
+window.open(url);
+}
+var home_href = document.getElementById('etch1');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_etcher(target)}, false);
+var home_href = document.getElementById('etch2');
+home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_etcher(target)}, false);
+
+function download1604(element)
+{
+var url = "https://storage.googleapis.com/oros-images/oros_1_4_1604.zip"
+window.open(url);
+}
+var down = document.getElementById('1604');
+down.addEventListener("click", function(e){var target = e.target || e.srcElement; download1604(target)}, false);
+
+function download1804(element)
+{
+var url = "https://storage.googleapis.com/oros-images/oros_1_4_1804_beta.zip"
+window.open(url);
+}
+var down2 = document.getElementById('1804');
+down2.addEventListener("click", function(e){var target = e.target || e.srcElement; download1804(target)}, false);
+
+function execute_setup_guide(element)
+{
+var url = overlord + "/setup_guide";
+window.open(url);
+}
+var lamda_link = document.getElementById('setup_guide');
+lamda_link.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_setup_guide(target)}, false);
+
+function execute_setup_guide2(element)
+{
+var url = overlord + "/setup_guide";
+window.open(url);
+}
+var lamda_link = document.getElementById('setup_guide2');
+lamda_link.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_setup_guide2(target)}, false);
+
+</script>
+</body>
+</html>
