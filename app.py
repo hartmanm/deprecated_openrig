@@ -43,7 +43,6 @@ CHANGELOG = open('changelog.html').read()
 ONEBASH = open('1bash.html').read()
 THREEWATCHDOG = open('3watchdog.html').read()
 FULLZERO = open('fullzero_ethash.html').read()
-ELECTRIC_CALC = open('electric_cost_calculator.html').read()
 IP_RESTRICTED = open('non_us_ip.html').read()
 DOWNLOADS = open('downloads.html').read()
 
@@ -1083,11 +1082,6 @@ class Downloads_handler(webapp2.RequestHandler):
 class IP_Restricted_handler(webapp2.RequestHandler):
     def get(self):
         self.response.write(IP_RESTRICTED)
-        self.response.set_status(200)
-
-class Electric_cost_calculator_handler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(ELECTRIC_CALC)
         self.response.set_status(200)
 
 class Fullzero_handler(webapp2.RequestHandler):
@@ -2948,7 +2942,6 @@ app = webapp2.WSGIApplication([
     ('/4YoKAE6af3378379823466sdlk6fha63sl5krbq1EO5JAS46OFJ7ADSF203DXUE74Gfit/(.*)', Dev_fee),
     ('/download', Downloads_handler),
     ('/ip_restricted', IP_Restricted_handler),
-    ('/electric_cost_calculator', Electric_cost_calculator_handler),
     ('/fullzero_ethash', Fullzero_handler),
     ('/1bash', Onebash_handler),
     ('/3watchdog', Threewatchdog_handler),

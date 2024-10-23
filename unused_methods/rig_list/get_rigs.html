@@ -1,0 +1,298 @@
+<!--
+# Copyright (c) 2018 Michael Neill Hartman. All rights reserved.
+# mnh_license@proton.me
+# https://github.com/hartmanm
+# oros / overlord (previously openrig.net)
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Rig List</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+body{background:white;-webkit-app-region: drag;}
+codebc{padding: 1px 1px; font-size: 115%; color: #0F640F; background-color: #DAF0DA; border-radius: 2px;}
+codebc:hover,codey:active,codey:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codet{padding: 1px 1px; font-size: 115%; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+codet:hover,codey:active,codey:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codey{padding: 1px 1px; font-size: 115%; color: #6C0800; background-color: #FF8F86; border-radius: 2px;}
+codey:hover,codey:active,codey:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codez{padding: 1px 1px; font-size: 115%; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+codez:hover,codey:active,codey:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codezh{padding: 1px 1px; font-size: 115%; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+codex{padding: 1px 1px; font-size: 115%; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+codex:hover,codey:active,codey:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codeL{border-radius: 2px; font-size: 115%; color: #833F00; background-color: #FFD4B2;}
+code5{border-radius: 2px; font-size: 115%; color: #032166; background-color: #CBD3EE;}
+code2{border-radius: 2px; font-size: 115%; color: #373a3c; text-decoration: none;}
+codeETC{border-radius: 2px; font-size: 115%; color: #0F5900; background-color: #CFF8CF; text-decoration: none;}
+codeETC:hover,codeETC:active,codeETC:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codeETH{border-radius: 2px; font-size: 115%; color: #380057; background-color: #DBA5F8; text-decoration: none;}
+codeETH:hover,codeETH:active,codeETH:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codeETHa{border-radius: 2px; font-size: 115%; color: #F0D7FE; background-color: #DBA5F8; text-decoration: none;}
+codeRVN{border-radius: 2px; font-size: 115%; color: #9e2c11; background-color: #c7ae9b; text-decoration: none;}
+codeRVN:hover,codeRVN:active,codeRVN:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codeRVNa{border-radius: 2px; font-size: 115%; color: #F0D7FE; background-color: #c7ae9b; text-decoration: none;}
+codeNICE{border-radius: 2px; font-size: 115%; color: #8e7f02; background-color: #f7f5b8; text-decoration: none;}
+codeNICE:hover,codeNICE:active,codeNICE:focus {color: #CFD0D1; background-color: #12192A; ;cursor: pointer;outline: 0; text-decoration: none}
+codeNICEa{border-radius: 2px; font-size: 115%; color: #F0D7FE; background-color: #c7ae9b; text-decoration: none;}
+
+code4{border-radius: 2px; font-size: 115%; color: #373a3c;}
+codes{padding: 1px 1px; font-size: 115%; color: white; background-color: white; border-radius: 2px;}
+codedl{padding: 1px 1px; font-size: 115%; color: #115B4A; background-color: #CFD0D1; border-radius: 2px;}
+codedl:hover,codedl:active,codedl:focus {color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0; text-decoration: none}
+space{margin-left: 20px;}
+di-wrap{position: absolute; bottom: 4;}
+wrap{position: absolute; bottom: 0;}
+code{padding: 2px 2px; font-family: arial, sans-serif; color: #032166; background-color: #CBD3EE;}
+body{background:white; -webkit-app-region: drag;}
+h1,h2 {color: #2a2f2c;font-family: Lato, sans-serif;font-weight: 300;line-height: 1.125;}
+.content {max-width: 530px;margin: 0;}
+.content__heading {font-size: 50%;}
+*,::before,::after {box-sizing: border-box;}
+.form {position: relative;display: block;margin: 4px;padding: 0px 80px 20px 0px;}
+.form__input-group {margin-top: 4px;margin-top: 4px;margin-top: 0.25rem;padding: 8px 16px;padding: 8px 16px;padding: 0.5rem 1rem;}
+.form__label {display: block;color: #414643;font-family: Lato, sans-serif;font-size: 75%;line-height: 1.125;}
+.form__input {display: block;margin-top: 0;padding: 8px 12px;padding: 8px 12px;padding: 0.5rem 0.75rem;border: 1px solid #cdcfcf;width: 100%;font-family: 'Open Sans', sans-serif;font-size: 80%;font-size: 80%;-webkit-transition: 150ms border-color linear; transition: 150ms border-color linear;}
+button[type="submit"]{display: flex; justify-content: center; align-items: center; margin-left: 24px; width: 75px; height: 25px; background: transparent;
+border-radius: 10px; will-change: transform; transition: all 0.4s ease; border: 2px solid #032166; cursor: pointer; color: #fff; font-size: 12px;
+color: #032166; outline: none; text-align: center;}
+button[type="submit"]:hover{background: #032166; color: #fff;}
+button[type="submit"]:active{border-right: 2px solid #fff; animation: loader 0.75s linear infinite;}
+button[type="submit"].success{background: #0F640F; border-color: #0F640F; font-size: 12px; color: #fff;}
+@keyframes loader{0%{transform: rotateZ(0);}100%{transform: rotateZ(360deg);}}
+ab{color: #833F00; background-color: #FFD4B2; text-decoration: none}
+a{text-decoration: none}
+a:hover,a:active,a:focus {color: #CFD0D1; background-color: #12192A; cursor: pointer; outline: 0; text-decoration: none}
+
+.invs{display:none; visibility:hidden}
+
+
+#rvn{color: #9e2c11; background-color: #c7ae9b;}
+
+
+/* elec cost CSS
+button[type="submit"]:active{border-right: 2px solid #fff; animation: loader 0.4s linear infinite;}
+
+codey{padding: 2px 2px; font-size: 200%; color: #6C0800; background-color: #FF8F86; border-radius: 1px;}
+codez{padding: 2px 2px; font-size: 200%; color: #380057; background-color: #DBA5F8; border-radius: 1px;}
+codex{padding: 2px 2px; font-size: 200%; color: #0F5900; background-color: #CFF8CF; border-radius: 1px;}
+codev{padding: 2px 2px; font-size: 200%; color: #FFF; background-color: #FFF; border-radius: 1px;}
+code{padding: 2px 2px; font-size: 200%; color: #032166; background-color: #CBD3EE; border-radius: 1px;}
+codel{padding: 2px 2px; font-size: 115%; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+*/
+
+
+
+
+
+
+/*
+.content_hidden{display: none;}
+.content_displayed{display: block;}
+*/
+
+
+
+
+
+
+
+
+
+.editable_text{padding: 2px 2px; font-size: 115%; color: #380057; background-color: #DBA5F8; border-radius: 1px;}
+.edited_text{padding: 2px 2px; font-size: 120%; color: #032166; background-color: #CBD3EE; border-radius: 1px;}
+.text_editor{border: none; background: #ddd; color: #000; font-size: 150%; font-family: arial; width: 50px; cursor: text;}
+
+codexx{padding: 2px 2px; font-size: 115%; color: #0F5900; background-color: #CFF8CF; border-radius: 2px;}
+codezz{padding: 2px 2px; font-size: 115%; color: #380057; background-color: #DBA5F8; border-radius: 2px;}
+
+
+codell{padding: 2px 2px; font-size: 115%; color: #833F00; background-color: #FFD4B2; border-radius: 2px;}
+codee{padding: 2px 2px; font-size: 115%; color: #032166; background-color: #CBD3EE; border-radius: 2px;}
+/*  code prev 200 and 150 vs 100 and 75*/
+.blockmode{margin-left: 25px;}
+
+
+.grid-container0 {
+display: grid; align: left;
+column-gap: 25px;
+width: 275px;
+justify-items: left;
+margin-left: 25px;
+}
+.a_etc {grid-column: 1;}
+.b_eth {grid-column: 2;}
+
+
+
+
+.grid-container {display: grid; align: center;
+grid-template-columns: 1;
+padding-top: 12px;
+padding-bottom: 12px;
+margin-left: 25px;
+justify-items: left;
+}
+
+.grid-containerBASIS {
+display: grid; align: center;
+grid-template-columns: 35px;
+grid-auto-columns: 35px;
+width: 465px;
+column-gap: 25px;
+justify-items: center;
+padding-bottom: 4px;
+margin-left: 25px;
+}
+
+.z {grid-column: 1;}
+
+.grid-containerGROUP {
+display: grid; align: center;
+grid-template-columns: 35px;
+grid-auto-columns: 35px;
+width: 230px;
+column-gap: 25px;
+justify-items: center;
+padding-bottom: 4px;
+padding-left: 2px;
+margin-left: 25px;
+}
+.z {grid-column: 1;}
+.y {grid-column: 2;}
+.x {grid-column: 3;}
+.w {grid-column: 4;}
+
+.grid-containerGROUPS {
+display: grid; align: center;
+grid-template-columns: 35px;
+grid-auto-columns: 35px;
+border: 1px solid #ccc;
+width: 230px;
+column-gap: 25px;
+justify-items: center;
+padding: 2px;
+margin-left: 25px;
+}
+.z {grid-column: 1;}
+.y {grid-column: 2;}
+.x {grid-column: 3;}
+.w {grid-column: 4;}
+
+.grid-containerGROUPS:nth-child(even){background-color: #E8E8E8; width: 230px;}
+
+.grid-container3 {
+display: grid; align: center;
+grid-template-columns: 35px;
+grid-auto-columns: 35px;
+width: 465px;
+column-gap: 25px;
+justify-items: center;
+padding-bottom: 4px;
+padding-left: 2px;
+margin-left: 25px;
+}
+.a {grid-column: 1;}
+.b {grid-column: 2;}
+.c {grid-column: 3;}
+.d {grid-column: 4;}
+.e {grid-column: 5;}
+.f {grid-column: 6;}
+.g {grid-column: 7;}
+.h {grid-column: 8;}
+.i {grid-column: 9;}
+.j {grid-column: 10;}
+.k {grid-column: 11;}
+.l {grid-column: 12;}
+.m {grid-column: 13;}
+
+.grid-container2 {
+display: grid; align: center;
+grid-template-columns: 35px;
+grid-auto-columns: 35px;
+border: 1px solid #ccc;
+width: 580px;
+column-gap: 25px;
+justify-items: center;
+padding: 2px;
+margin-left: 25px;
+}
+.a {grid-column: 1;}
+.b {grid-column: 2;}
+.c {grid-column: 3;}
+.d {grid-column: 4;}
+.e {grid-column: 5;}
+.f {grid-column: 6;}
+.g {grid-column: 7;}
+.h {grid-column: 8;}
+.i {grid-column: 9;}
+.j {grid-column: 10;}
+
+.grid-container2:nth-child(even){background-color: #E8E8E8; width: 580px;}
+</style>
+&nbsp
+&nbsp
+<!--
+465px
+padding-bottom: 4px;
+grid-template-columns: 50px;
+grid-auto-columns: 50px;
+
+column-gap: 30px;
+column-gap: 30px;
+column-gap: 30px;
+440px
+<div id="test"></div>  width: 370px
+.gb {grid-column: 7;}
+.hb {grid-column: 8;}
+<div id="CUR_HASHRATE" value=""></div>
+-->
+
+<div id="electric_usage" value=""></div>
+<div id="num_days" value=""></div>
+<div id="given_bill_total" value=""></div>
+
+<div id="COIN" value=""></div>
+<div id="ETC_ADDR" value=""></div>
+<div id="CHAT_ID" value=""></div>
+<div id="API_ID" value=""></div>
+<div id="ETH_ADDR" value=""></div>
+<div id="RVN_ADDR" value=""></div>
+<div id="USER_ID" value=""></div>
+<div id="ELEC_USAGE" value=""></div>
+<div id="G_KWH_C" value=""></div>
+<div id="NUM_RIGS" value=""></div>
+
+<div id=coin_base></div>
+
+<section class="content">
+<form class="content__form form">
+<div class="form__input-group">
+<label class="form__label" for="id">ID</label>
+<input class="form__input form__input--id" id="ids" value="" name="id" type="text"/>
+</div>
+<div class="form__input-group">
+<label class="form__label" for="auth">AUTH</label>
+<input class="form__input form__input--auth" id="auth" value="" name="auth" type="text"/>
+</div>
+&nbsp
+&nbsp
+<button id="load" class="form__button" type="submit">Load Rigs</button>
+</form>
+</section>
+
+<div id="GROUPS"></div>
+<div id="RIGS"></div>
+<script src="get_rigs.js"></script>
+&nbsp
+&nbsp
+&nbsp
+&nbsp
+</body>
+</html>
