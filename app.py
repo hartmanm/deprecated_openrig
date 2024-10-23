@@ -20,8 +20,6 @@ import urllib
 
 HOMEPAGE = open('home.html').read()
 SIGNUP = open('signup.html').read()
-TOS = open('terms_of_service.html').read()
-PRIVACY_POLICY = open('privacy_policy.html').read()
 UPDATE = open('update.html').read()
 LOGIN = open('login.html').read()
 LOGOUT = open('logout.html').read()
@@ -37,7 +35,6 @@ SETUP_GUIDE = open('setup_guide.html').read()
 FAQ = open('faq.html').read()
 TEST = open('test.html').read()
 WGUIDE = open('w10.html').read()
-CHANGELOG = open('changelog.html').read()
 ONEBASH = open('1bash.html').read()
 THREEWATCHDOG = open('3watchdog.html').read()
 FULLZERO = open('fullzero_ethash.html').read()
@@ -1058,11 +1055,6 @@ class Threewatchdog_handler(webapp2.RequestHandler):
         self.response.write(THREEWATCHDOG)
         self.response.set_status(200)
 
-class Changelog_handler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(CHANGELOG)
-        self.response.set_status(200)
-
 class W_setup_guide_handler(webapp2.RequestHandler):
     def get(self):
         self.response.write(WGUIDE)
@@ -1081,16 +1073,6 @@ class Update_handler(webapp2.RequestHandler):
 class Signup_handler(webapp2.RequestHandler):
     def get(self):
         self.response.write(SIGNUP)
-        self.response.set_status(200)
-
-class Tos_handler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(TOS)
-        self.response.set_status(200)
-
-class Privacy_policy_handler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(PRIVACY_POLICY)
         self.response.set_status(200)
 
 class Faq_handler(webapp2.RequestHandler):
@@ -2920,7 +2902,6 @@ app = webapp2.WSGIApplication([
     ('/activate/(.*)', Activate_handler),
     ('/customer/(.*)', Customer_handler),
     ('/customer', Customer_handler),
-    ('/changelog', Changelog_handler),
     ('/email_alert/(.*)', Email_alert_handler),
     ('/sid_ckey/(.*)', SID_to_customer_key_handler),
     ('/sid_auth/(.*)', SID_to_AUTH_handler),
@@ -2936,8 +2917,6 @@ app = webapp2.WSGIApplication([
     ('/update.sh', Update_handler),
     ('/downloads/(.*)', Download_handler),
     ('/downloads', Download_handler),       #rm??
-    ('/privacy_policy', Privacy_policy_handler),
-    ('/terms_of_service', Tos_handler),
     ('/signup', Signup_handler),
     ('/cloud_logger/(.*)', Cloud_logger_handler),
     ('/', Mainpage)
