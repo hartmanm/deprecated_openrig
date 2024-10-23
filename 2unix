@@ -1,7 +1,10 @@
 #!/bin/bash
-#
-# ©2018,2019,2020 Michael Neill Hartman
-#
+
+# Copyright (c) 2018 Michael Neill Hartman. All rights reserved.
+# mnh_license@proton.me
+# https://github.com/hartmanm
+# oros / overlord (previously openrig.net)
+
 sudo chown m1 /media/ramdisk
 # or in 18.04.2
 sudo chown oros /media/ramdisk
