@@ -19,10 +19,10 @@
 
 ### Architecture Components
 
-1. **NoSQL Database**: Google Datastore
-2. **Back-end**: Python
-3. **Front-end**: JavaScript
-4. **Operating System**: modified Ubuntu 16.04 / Bash scripts
+1. **NoSQL Database**:     Google Datastore
+2. **Back-end**:           Python
+3. **Front-end**:          JavaScript
+4. **Operating System**:   modified Ubuntu 16.04 / Bash scripts
 
 ### Back-end
 
