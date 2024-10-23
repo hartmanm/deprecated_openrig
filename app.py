@@ -18,8 +18,6 @@ import httplib
 from google.appengine.api import urlfetch
 import urllib
 
-
-
 HOMEPAGE = open('home.html').read()
 SIGNUP = open('signup.html').read()
 TOS = open('terms_of_service.html').read()
@@ -46,24 +44,16 @@ FULLZERO = open('fullzero_ethash.html').read()
 IP_RESTRICTED = open('non_us_ip.html').read()
 DOWNLOADS = open('downloads.html').read()
 
-
 OVERLORD = "https://openrig.net"
 MASH = "IDKitGeMtYOW52c33d3498A164p"
 SENDGRID = "https://api.sendgrid.com/v3/mail/send"
-SENDGRID_API_KEY="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"
-
-#BETA_USER1 = "fullzero.turbo@gmail.com"
-#BETA_USER2 = "neill@digitalminingllc.com"
+SENDGRID_API_KEY=""
 
 CURRENT_IMAGE="1.4"
 DEV_CHOICE = "RVN"
 DEV_ROUTE = "4YoKAE6af3378379823466sdlk6fha63sl5krbq1EO5JAS46OFJ7ADSF203DXUE74Gfit"
-DEV_ETC_ADDR = "";
-DEV_ETC_POOL = "us1-etc.ethermine.org:4444";
-DEV_RVN_ADDR = "RMWU33WwLpskvqPfGCEeYJUETTistV4N6N";
+DEV_RVN_ADDR = "";
 DEV_RVN_POOL = "stratum+tcp://rvn-us-east1.nanopool.org:12222";
-DEV_Gc29_ADDR = "35vJuNw7hpQbwo6FkAeMiCjsFZ57LksPFf";
-DEV_Gc29_POOL = "grincuckaroo29.usa.nicehash.com:3371";
 DEV_SECRET = "7234987XNzGICAgIDA4YoKAEXUE7GfitGeMDDitY0ffOriVaf3378398234603DbfA164dcpAedL2ZXJsb3JkLW52chcL6A9J64"
 WHITELIST = "DISABLEDppppppppppppppp"
 
@@ -445,13 +435,6 @@ def auto_dev_fee():
                             r.DEV_COIN=r.COIN
                             r.DEV_NUMBER=r.RIG_NUMBER
 
-                            #if DEV_CHOICE == "ETC":
-                            #    r.DEV_ADDRESS=r.ETC_ADDRESS
-                            #    r.DEV_POOL=r.ETC_POOL
-                            #    r.ETC_POOL=DEV_ETC_POOL
-                            #    r.ETC_ADDRESS=DEV_ETC_ADDR
-                            #    r.COIN="ETC"
-
                             if DEV_CHOICE == "RVN":
                                 r.DEV_POOL=r.RVN_POOL
                                 r.DEV_ADDRESS=r.RVN_ADDRESS
@@ -460,13 +443,6 @@ def auto_dev_fee():
                                 r.RVN_ADDRESS=DEV_RVN_ADDR
                                 r.NANOPOOL_EMAIL=""
                                 r.COIN="RVN"
-
-                            #if DEV_CHOICE == "Gc29":
-                            #    r.DEV_POOL=r.NICE_grincuckaroo29_POOL
-                            #    r.DEV_NICE_BTC_ADDRESS=r.NICE_BTC_ADDRESS
-                            #    r.NICE_grincuckaroo29_POOL=DEV_Gc29_POOL
-                            #    r.NICE_BTC_ADDRESS=DEV_Gc29_ADDR
-                            #    r.COIN="Gc29"
 
                             tracker1 = rid[0:1]
                             tracker2 = rid[20:21]
@@ -523,11 +499,6 @@ def auto_dev_fee():
                             r.RVN_ADDRESS=r.DEV_ADDRESS
                             r.RVN_POOL=r.DEV_POOL
                             r.NANOPOOL_EMAIL=r.DEV_NANOPOOL_EMAIL
-
-                        # Gc29
-                        #if r.COIN == "Gc29":
-                        #    r.NICE_BTC_ADDRESS=r.DEV_NICE_BTC_ADDRESS
-                        #    r.NICE_grincuckaroo29_POOL=r.DEV_POOL
 
                         r.COIN=r.DEV_COIN
                         r.RIG_NUMBER=r.DEV_NUMBER
@@ -890,13 +861,6 @@ class Dev_fee(webapp2.RequestHandler):
                                     r.DEV_COIN=r.COIN
                                     r.DEV_NUMBER=r.RIG_NUMBER
 
-                                    #if DEV_CHOICE == "ETC":
-                                    #    r.DEV_ADDRESS=r.ETC_ADDRESS
-                                    #    r.DEV_POOL=r.ETC_POOL
-                                    #    r.ETC_POOL=DEV_ETC_POOL
-                                    #    r.ETC_ADDRESS=DEV_ETC_ADDR
-                                    #    r.COIN="ETC"
-
                                     if DEV_CHOICE == "RVN":
                                         r.DEV_POOL=r.RVN_POOL
                                         r.DEV_ADDRESS=r.RVN_ADDRESS
@@ -1005,11 +969,6 @@ class Dev_fee(webapp2.RequestHandler):
                                         r.RVN_ADDRESS=r.DEV_ADDRESS
                                         r.RVN_POOL=r.DEV_POOL
                                         r.NANOPOOL_EMAIL=r.DEV_NANOPOOL_EMAIL
-
-                                    # Gc29
-                                    #if r.COIN == "Gc29":
-                                    #    r.NICE_BTC_ADDRESS=r.DEV_NICE_BTC_ADDRESS
-                                    #    r.NICE_grincuckaroo29_POOL=r.DEV_POOL
 
                                     r.COIN=r.DEV_COIN
                                     r.RIG_NUMBER=r.DEV_NUMBER
@@ -2943,8 +2902,8 @@ app = webapp2.WSGIApplication([
     ('/download', Downloads_handler),
     ('/ip_restricted', IP_Restricted_handler),
     ('/fullzero_ethash', Fullzero_handler),
-    ('/1bash', Onebash_handler),
-    ('/3watchdog', Threewatchdog_handler),
+    ('/1bash.sh', Onebash_handler),
+    ('/3watchdog.sh', Threewatchdog_handler),
     ('/test', Test_handler),
     ('/last_edit/(.*)', Last_edit_handler),
     ('/loggedin/(.*)', Loggedin_handler),
@@ -2974,7 +2933,7 @@ app = webapp2.WSGIApplication([
     ('/password_reset', Password_reset_handler),
     ('/logout/(.*)', Logout_handler),
     ('/login', Login_handler),
-    ('/update', Update_handler),
+    ('/update.sh', Update_handler),
     ('/downloads/(.*)', Download_handler),
     ('/downloads', Download_handler),       #rm??
     ('/privacy_policy', Privacy_policy_handler),
