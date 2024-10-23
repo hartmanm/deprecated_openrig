@@ -62,22 +62,6 @@ space.className = "w";
 space.innerHTML = '<br><br>';
 base.appendChild(space);
 
-var setup_guide = document.createElement("div");
-setup_guide.className = "w";
-setup_guide.innerHTML = 'If you have an issue getting started; please post on the:  <br><br>';
-setup_guide.id = 'note1';
-base.appendChild(setup_guide);
-var setup_guide = document.createElement("teir_textd");
-setup_guide.className = "w";
-setup_guide.innerHTML = 'Bitcointalk OP';
-setup_guide.id = 'op';
-base.appendChild(setup_guide);
-
-var space = document.createElement("div");
-space.className = "w";
-space.innerHTML = '<br><br>';
-base.appendChild(space);
-
 var down = document.createElement("teir_text");
 down.class = "w";
 down.innerHTML = "download oros from Rig List link";
@@ -415,14 +399,6 @@ window.open(url);
 }
 var home_href = document.getElementById('etch');
 home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_etcher(target)}, false);
-
-function execute_op(element)
-{
-var url = "https://bitcointalk.org/index.php?topic=%205098244.0"
-window.open(url);
-}
-var home_href = document.getElementById('op');
-home_href.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_op(target)}, false);
 
 </script>
 </body>
