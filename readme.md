@@ -1,4 +1,4 @@
-# overlord API, used as part of a centralized configuration and management system (previously openrig.net)
+# overlord frontend and API, used as part of a centralized configuration and management system (previously openrig.net)
 
 ## Overview
 
