@@ -18,88 +18,7 @@ div{margin-left: auto; margin-right: auto;}
 <div>
 <br>
 <br>
-<img src="static/win10guide/w1.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w2.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w3.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w4.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w5.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w6.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w7.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w8.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w9.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w10.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w11.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w12.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w13.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w14.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w15.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w16.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w17.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w18.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w19.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w20.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w21.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w22.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w23.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w24.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w25.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w26.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w27.png" width="960" height="540">
-<br>
-<br>
-<img src="static/win10guide/w28.png" width="960" height="540">
+<div id="base"></div>
 <br>
 <br>
 <br>
@@ -108,6 +27,23 @@ div{margin-left: auto; margin-right: auto;}
 <br>
 </div>
 <script>
+
+var base = document.getElementById("base");
+
+function append_image(innerhtml)
+{
+var ddiv = document.createElement("dimg");
+ddiv.innerHTML = innerhtml;
+base.appendChild(ddiv);
+var dbr = document.createElement("dbr");
+dbr.innerHTML = '<br>';
+base.appendChild(dbr);
+}
+
+w10_src.forEach((value) => {
+    append_image(''+img_tag_start+value+w10_img_css_style+img_tag_end+'');
+});
+
 </script>
 </body>
 </html>
