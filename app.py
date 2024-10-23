@@ -1,6 +1,7 @@
-#
-# Copyright 2018,2019,2020 Michael Neill Hartman
-#
+# Copyright (c) 2018 Michael Neill Hartman. All rights reserved.
+# mnh_license@proton.me
+# https://github.com/hartmanm
+# oros / overlord (previously openrig.net)
 
 from google.appengine.ext import ndb
 import webapp2
