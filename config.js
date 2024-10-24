@@ -6,7 +6,7 @@ const overlord = 'https://hartmanm.github.io/overlord';
 const img_css_style         ='style="width:50px;height:50px;"'
 const static_src_url        ='https://hartmanm.github.io/static/overlord/'
 
-const w10_img_css_style         ='style=width="960" height="540"'
+const w10_img_css_style         =''
 const static_w10_src_url    ='https://hartmanm.github.io/static/overlord/win10guide/'
 
 const img_tag_start = '<img src="'
