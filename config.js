@@ -12,8 +12,8 @@ const static_w10_src_url    ='https://hartmanm.github.io/static/overlord/win10gu
 const img_tag_start = '<img src="'
 const img_tag_end   = '/>'
 
-const eth_img       =''+static_src_url+'ether.png'
-const etc_img       =''+static_src_url+'etherclassic.png'
+const eth_img       =''+static_src_url+'eth.png'
+const etc_img       =''+static_src_url+'etc.png'
 const rvn_img       =''+static_src_url+'rvn.png'
 const xmr_img       =''+static_src_url+'xmr.png'
 
