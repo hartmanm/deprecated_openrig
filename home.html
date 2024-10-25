@@ -105,6 +105,7 @@ ddiv{}
 </div>
 </ddiv>
 <footer class="footer"></footer>
+<script src="https://hartmanm.github.io/overlord/config.js"></script>
 <script>
 const overlord = 'https://hartmanm.github.io/overlord';
 
@@ -121,25 +122,10 @@ var lamdalink = document.getElementById(id);
 lamdalink.addEventListener("click", function(e){var target = e.target || e.srcElement; execute_z(target,url)}, false);
 }
 
-lamda_link('<img src="static/ether.png" style="width:50px;height:50px;" alt="jp2/ether.jp2"/>','eth','https://www.ethereum.org');
-lamda_link('<img src="static/rvn.png" style="width:50px;height:50px;" alt="jp2/rvn.jp2"/>','rvn','https://ravencoin.org');
-lamda_link('<img src="static/xzc.png" style="width:50px;height:50px;" alt="jp2/xzc.jp2"/>','xzc','https://zcoin.io');
-lamda_link('<img src="static/etherclassic.png" style="width:50px;height:50px;" alt="jp2/etherclassic.jp2"/>','etc','https://ethereumclassic.org');
-lamda_link('<img src="static/xmr.png" style="width:50px;height:50px;" alt="jp2/xmr.jp2"/>','xmr','https://www.getmonero.org');
-//lamda_link('<img src="static/beam.png" style="width:50px;height:50px;" alt="jp2/beam.jp2"/>','beam','https://www.beam.mw');
-//lamda_link('<img src="static/grin.png" style="width:50px;height:50px;" alt="jp2/grin.jp2"/>','grin','https://grin-tech.org');
-//lamda_link('<img src="static/ae.png" style="width:50px;height:50px;" alt="jp2/ae.jp2"/>','ae','https://www.aeternity.com');
-//lamda_link('<img src="static/suqa.png" style="width:50px;height:50px;" alt="jp2/suqa.jp2"/>','suqa','https://suqa.org');
-//lamda_link('<img src="static/clo.png" style="width:50px;height:50px;" alt="jp2/clo.jp2"/>','clo','https://callisto.network');
-//lamda_link('<img src="static/hth.png" style="width:50px;height:50px;" alt="jp2/hth.jp2"/>','hth','https://hthcoin.world');
-//lamda_link('<img src="static/music.png" style="width:50px;height:50px;" alt="jp2/music.jp2"/>','music','https://musicoin.org');
-//lamda_link('<img src="static/btg.png" style="width:50px;height:50px;" alt="jp2/btg.jp2"/>','btg','https://bitcoingold.org');
-//lamda_link('<img src="static/aion.png" style="width:50px;height:50px;" alt="jp2/aion.jp2"/>','aion','https://aion.network');
-//lamda_link('<img src="static/btcz.png" style="width:50px;height:50px;" alt="jp2/btcz.jp2"/>','btcz','https://btcz.rocks');
-//lamda_link('<img src="static/xsg.png" style="width:50px;height:50px;" alt="jp2/xsg.jp2"/>','xsg','https://snowgem.org');
-//lamda_link('<img src="static/anon.png" style="width:50px;height:50px;" alt="jp2/anon.jp2"/>','anon','https://www.anonymousbitcoin.io');
-//lamda_link('<img src="static/nice.png" style="width:50px;height:50px;" alt="jp2/nice.jp2"/>','nice','https://www.nicehash.com');
-
+lamda_link('<img src="'+eth_img+'" style="width:50px;height:50px;" />','eth','https://www.ethereum.org');
+lamda_link('<img src="'+etc_img+'" style="width:50px;height:50px;" />','rvn','https://ravencoin.org');
+lamda_link('<img src="'+rvn_img+'" style="width:50px;height:50px;" />','etc','https://ethereumclassic.org');
+lamda_link('<img src="'+xmr_img+'" style="width:50px;height:50px;" />','xmr','https://www.getmonero.org');
 
 function execute_signup(element)
 {
