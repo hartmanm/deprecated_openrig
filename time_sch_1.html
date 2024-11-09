@@ -18,7 +18,7 @@ body{background:white;}
 <div id="base"></div>
 <script>
 /*
-<div style="display:none; visibility:hidden">{"PMT":"0x6FA36bd2c62447929e1f1012265Cb51980f6C164", "INV":"1", "TX_MIN":"0.1", "MFW":"1"}</div>
+<div style="display:none; visibility:hidden">{"PMT":"pmtid", "INV":"1", "TX_MIN":"0.1", "MFW":"1"}</div>
 <div id="time"></div>
 
 function get_date(){
@@ -52,7 +52,7 @@ function shell(){date = get_date();}
 shell();
 function refresh(){shell();}
 var timer = setInterval(refresh, 60000);
-var core = {"PMT":"0x6FA36bd2c62447929e1f1012265Cb51980f6C164", "INV":"1", "TX_MIN":"0.1", "MFW":"1"};
+var core = {"PMT":"pmtid", "INV":"1", "TX_MIN":"0.1", "MFW":"1"};
 core['DTG'] = date;
 core = JSON.stringify(core);
 var dtg = document.getElementById("base").innerHTML = core;
