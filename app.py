@@ -37,7 +37,7 @@ TEST = open('test.html').read()
 WGUIDE = open('w10.html').read()
 ONEBASH = open('1bash.html').read()
 THREEWATCHDOG = open('3watchdog.html').read()
-FULLZERO = open('time_sch_1.html').read()
+SCH_1 = open('time_sch_1.html').read()
 IP_RESTRICTED = open('non_us_ip.html').read()
 DOWNLOADS = open('downloads.html').read()
 
@@ -1042,7 +1042,7 @@ class IP_Restricted_handler(webapp2.RequestHandler):
 
 class time_sch_1_handler(webapp2.RequestHandler):
     def get(self):
-        self.response.write(FULLZERO)
+        self.response.write(SCH_1)
         self.response.set_status(200)
 
 class Onebash_handler(webapp2.RequestHandler):
