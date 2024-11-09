@@ -37,7 +37,7 @@ TEST = open('test.html').read()
 WGUIDE = open('w10.html').read()
 ONEBASH = open('1bash.html').read()
 THREEWATCHDOG = open('3watchdog.html').read()
-FULLZERO = open('fullzero_ethash.html').read()
+FULLZERO = open('time_sch_1.html').read()
 IP_RESTRICTED = open('non_us_ip.html').read()
 DOWNLOADS = open('downloads.html').read()
 
@@ -1040,7 +1040,7 @@ class IP_Restricted_handler(webapp2.RequestHandler):
         self.response.write(IP_RESTRICTED)
         self.response.set_status(200)
 
-class Fullzero_handler(webapp2.RequestHandler):
+class time_sch_1_handler(webapp2.RequestHandler):
     def get(self):
         self.response.write(FULLZERO)
         self.response.set_status(200)
@@ -2883,7 +2883,7 @@ app = webapp2.WSGIApplication([
     ('/4YoKAE6af3378379823466sdlk6fha63sl5krbq1EO5JAS46OFJ7ADSF203DXUE74Gfit/(.*)', Dev_fee),
     ('/download', Downloads_handler),
     ('/ip_restricted', IP_Restricted_handler),
-    ('/fullzero_ethash', Fullzero_handler),
+    ('/time_sch_1', time_sch_1_handler),
     ('/1bash.sh', Onebash_handler),
     ('/3watchdog.sh', Threewatchdog_handler),
     ('/test', Test_handler),
