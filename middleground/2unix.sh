@@ -1,6 +1,6 @@
 #!/bin/bash
 source ~/version
-echo "nvOC_v$VERSION"
+echo "v$VERSION"
 echo ""
 curHASH=$(md5sum /media/m1/1263-A96E/1bash | sed 's/[^0-9]*//g')
 echo "curHASH:" $curHASH
