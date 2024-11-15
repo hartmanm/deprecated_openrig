@@ -1,12 +1,12 @@
-# overlord frontend and API, a centralized configuration and management system (previously openrig.net)
+# openrig.net (2018-2019), a centralized configuration and management system
 
 ## Overview
 
-- oros scripts on user machines control interaction with the overlord API, using a single configuration file to access the user's account.
+- oros scripts on user machines control interaction with the openrig API, using a single configuration file to access the user's account.
 
-- A ramdisk is generated on boot, executing the 2unix.sh script which downloads necessary files and programs from the overlord API to the ramdisk.
+- A ramdisk is generated on boot, executing the 2unix.sh script which downloads necessary files and programs from the openrig API to the ramdisk.
 
-- **openrig.net** was previously (2018-2019) a service using oros and the overlord API.
+- **openrig.net** was previously (2018-2019) a service using oros and the openrig API.
 
 ## Features
 - **Centralized Management**: Change configurations for any number of machines from any internet-connected device.
